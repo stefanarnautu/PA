@@ -55,16 +55,6 @@ public class MyProject {
                 }
                 else vecini[j][i]=vecini[i][j]=false;
 
-        /*for(int i=0;i<n;i++){
-            for (int j=0;j<n;j++)
-            {
-                if(!vecini[i][j])
-                    System.out.print("f");
-               else System.out.print("a");
-            }
-            System.out.println("");
-        }*/
-
         String[][] neighbors= new String[n][n];
         String vecinNou=new String();
         for(int i=0;i<n;i++) {
@@ -78,9 +68,9 @@ public class MyProject {
             }
         }
         for(int i=0;i<n;i++) {
-            System.out.println(i);
+            System.out.println(words.get(i));
             int contor=0;
-            while(neighbors[i][contor]!=null)
+            while(neighbors[i][contor]!=null && contor<n-1)
             {
                 System.out.print(neighbors[i][contor]+" ");
                 contor++;
