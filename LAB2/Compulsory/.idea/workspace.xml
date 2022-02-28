@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8c4dcd9-e957-4565-80a9-d0ae858721f0" name="Changes" comment="" />
+    <list default="true" id="86dd0f61-e234-4cf4-a252-cdf8ecea6348" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -23,7 +24,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="25hCoYHjEAqVYYDqKQPwv9MNEKz" />
+  <component name="ProjectId" id="25jy5VcrLyM9UKMz7vaDlcPzbgN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,35 +34,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
-    <configuration name="MyProject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MyProject" />
-      <module name="Homework" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Comp2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MyProject" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f8c4dcd9-e957-4565-80a9-d0ae858721f0" name="Changes" comment="" />
-      <created>1645970109877</created>
+      <changelist id="86dd0f61-e234-4cf4-a252-cdf8ecea6348" name="Changes" comment="" />
+      <created>1646054612537</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1645970109877</updated>
-      <workItem from="1645970111907" duration="9711000" />
-      <workItem from="1646048553670" duration="2048000" />
-      <workItem from="1646054402163" duration="209000" />
+      <updated>1646054612537</updated>
+      <workItem from="1646054613816" duration="2778000" />
     </task>
     <servers />
   </component>
