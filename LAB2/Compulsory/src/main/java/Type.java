@@ -1,4 +1,4 @@
 public enum Type {
-    lab,
-    lectureHall
+    LAB,
+    LECTUREHALL
 }

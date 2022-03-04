@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Room {
     String name;
     Type type;
@@ -33,4 +35,19 @@ public class Room {
     {
       return name + " " + " " + capacity+ " " +type ;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return capacity == room.capacity && Objects.equals(name, room.name) && type == room.type;
+    }
+
+    //Este necesar hashCode?
+
+  /*  @Override
+    public int hashCode() {
+        return Objects.hash(name, type, capacity);
+    }*/
 }

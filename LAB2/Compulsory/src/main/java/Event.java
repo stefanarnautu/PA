@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Event {
     private String name;
     private int participants;
@@ -54,4 +56,13 @@ public class Event {
     {
         return name + " " + participants + " " + startTime + " " + endTime + " " + type;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return participants == event.participants && startTime == event.startTime && endTime == event.endTime && Objects.equals(name, event.name) && type == event.type;
+    }
 }
+
