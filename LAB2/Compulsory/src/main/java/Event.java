@@ -64,5 +64,11 @@ public class Event {
         Event event = (Event) o;
         return participants == event.participants && startTime == event.startTime && endTime == event.endTime && Objects.equals(name, event.name) && type == event.type;
     }
+
+    //Este necesar hashCode?
+    /*  @Override
+    public int hashCode() {
+        return Objects.hash(name, type, capacity);
+    }*/
 }
 
