@@ -34,12 +34,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Compulsory+Homework" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Comp2" />
+      <module name="Compulsory+Homework" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -61,7 +61,8 @@
       <workItem from="1646054613816" duration="2778000" />
       <workItem from="1646064413154" duration="35000" />
       <workItem from="1646065598033" duration="4793000" />
-      <workItem from="1646417783762" duration="9000000" />
+      <workItem from="1646417783762" duration="8695000" />
+      <workItem from="1646426880791" duration="90000" />
     </task>
     <servers />
   </component>
