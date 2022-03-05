@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86dd0f61-e234-4cf4-a252-cdf8ecea6348" name="Changes" comment="" />
+    <list default="true" id="d6c623f5-f14f-49e6-b27f-a084d223545c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -24,7 +24,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="25jy5VcrLyM9UKMz7vaDlcPzbgN" />
+  <component name="ProjectId" id="25yTqAReMGY42FEiH3JsVEG6zhD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,12 +34,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Compulsory+Homework" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Comp2" />
+      <module name="Compulsory1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -53,15 +52,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="86dd0f61-e234-4cf4-a252-cdf8ecea6348" name="Changes" comment="" />
-      <created>1646054612537</created>
+      <changelist id="d6c623f5-f14f-49e6-b27f-a084d223545c" name="Changes" comment="" />
+      <created>1646498518913</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646054612537</updated>
-      <workItem from="1646054613816" duration="2778000" />
-      <workItem from="1646064413154" duration="35000" />
-      <workItem from="1646065598033" duration="4793000" />
-      <workItem from="1646417783762" duration="9000000" />
+      <updated>1646498518913</updated>
+      <workItem from="1646498520771" duration="1232000" />
     </task>
     <servers />
   </component>
