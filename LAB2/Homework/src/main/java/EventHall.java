@@ -1,5 +1,10 @@
 import java.util.Objects;
 
+/**
+ * Clasa exitinsa de la Room
+ * Contime implementarea metodelor din Room
+ */
+
 public class EventHall extends Room{
 
    private boolean videoProjector;

@@ -1,5 +1,8 @@
 import java.util.Objects;
 
+/**
+ * Aceasta clasa este obstracta iar Laboratory si EventHall sunt doua clase extinse de la ea
+ */
 abstract class Room {
      protected String name;
      protected int capacity;

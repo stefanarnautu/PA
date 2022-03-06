@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * Aceasta clasa este folosita pentru a stoca toate laboratoarele/cursurile pentru a putea fi folosite in generarea solutiei
+ * (solutia va fi generata unui obiect de acest tip)
+ */
+
 public class InstantaProblema {
 
     //Am creat array-uri pentru sali de clasa si de curs separat pentru a sti cate sunt de fiecare si pentru ca suntabiecte diferite
@@ -11,6 +16,12 @@ public class InstantaProblema {
     public InstantaProblema()
     {
     }
+
+    /**
+     * Adaugarea unui laborator nou in Array-ul dedicat laboratoarelor(saliDeClasa)
+     * @param name numele laboratorului
+     * @param capacity capacitatea ceruta
+     */
     public void addLaboratory(String name, int capacity)
     {
         Laboratory room=new Laboratory(name,capacity);
@@ -20,6 +31,13 @@ public class InstantaProblema {
                 System.out.println("Sala de curs existenta.");
         saliDeClasa.add(room);
     }
+
+    /**
+     * Adaugarea unei sali de curs  in Array-ul dedicat cursurilor(saliDeCurs)
+     * @param name numele salii
+     * @param capacity capacitatea salii
+     * @param videoProjector daca exista un video proiector in acea sala(este de tip boolean)
+     */
     public void addEventHall(String name, int capacity,boolean videoProjector)
     {
         EventHall room=new EventHall(name,capacity,videoProjector);
@@ -28,6 +46,14 @@ public class InstantaProblema {
                 System.out.println("Sala de clasa existenta.");
         saliDeCurs.add(room);
     }
+
+    /**
+     * Adaugarea unui eveniment(curs/seminar) in  in Array-ul dedicat evenimentelor(cursuriSiSeminarii)
+     * @param name numele evenimentului (prima litera indica si tipul; c pentru curs si l pentru laborator)
+     * @param participants cate persoane participa la acest eveniment
+     * @param startTime la ce ora incepe
+     * @param endTime la ce ora se termina
+     */
     public void addEvent(String name,int participants,int startTime, int endTime)
     {
         Event event=new Event(name,participants,startTime,endTime);
@@ -39,6 +65,11 @@ public class InstantaProblema {
 
     //Cautarile la afisarea oricarui eveniment se face in functie de nume
 
+    /**
+     * Afisare date despre un eveniment
+     * @param numeEvent numele evenimentului pe care il cautam
+     * @return returneaza datele cu ajutorul metodei toString() suprascrisa in clasa Event, sau mesajul "Nu exista"
+     */
     public String afiseazaEvent(String numeEvent)
     {
         for (Event e : cursuriSiSeminarii)
@@ -47,19 +78,31 @@ public class InstantaProblema {
             }
         return "Nu exista";
     }
+
+    /**
+     * Afiseaza date despre o incapere de tip laborator
+     * @param numeRoom numele salii de laborator pe care o cautam
+     * @return returneaza datele cu ajutorul metodei toString() suprascrisa in clasa Laboratory, sau mesajul "Nu exista"
+     */
     public String afiseazaLaborator(String numeRoom)
     {
-        for (Room r : saliDeClasa)
-            if (numeRoom.equals(r.getName())) {
-                return r.toString();
+        for (Laboratory l : saliDeClasa)
+            if (numeRoom.equals(l.getName())) {
+                return l.toString();
             }
         return "Nu exista";
     }
+
+    /**
+     * Afiseaza date despre o incapere de tip sala de curs
+     * @param numeRoom numele salii de curs pe care o cautam
+     * @return returneaza datele cu ajutorul metodei toString() suprascrisa in clasa EventHall, sau mesajul "Nu exista"
+     */
     public String afiseazaSalaDeCurs(String numeRoom)
     {
-        for (Room r : saliDeCurs)
-            if (numeRoom.equals(r.getName())) {
-                return r.toString();
+        for (EventHall e : saliDeCurs)
+            if (numeRoom.equals(e.getName())) {
+                return e.toString();
             }
         return "Nu exista";
     }

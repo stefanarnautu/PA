@@ -1,9 +1,16 @@
 import java.util.Objects;
 
+/**
+ * Aceasta clasa ofera solutia problemei
+ */
 public class Solution {
-
     String[][] orarSali; //nu sunt sigur daca trebuie initializat aici
 
+    /**
+     * Aceasta metoda primeste o instanta a problemei si genereaza un orar al cursurilor/seminariilor
+     * Pe parcurs afiseaza in ce clasa a fost repartizat un curs/seminar dar il memoreaza si in orarSali
+     * @param problem o instanta
+     */
     public Solution(InstantaProblema problem) {
 
         //initializam orarul cu cate o linie pentru fiecare sala de curs/seminar si maxim 6 cursuri/seminarii pe zi
@@ -47,6 +54,9 @@ public class Solution {
         }
     }
 
+    /**
+     * Metoda de afisare a orarului
+     */
     public void afisearaOrar(){
         for(int i=0;i<orarSali.length;i++) {
             for (int j = 0; j < 6; j++)

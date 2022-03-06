@@ -1,5 +1,9 @@
 import java.util.Objects;
 
+/**
+ * Clasa exitinsa de la Room
+ * Contime implementarea metodelor din Room
+ */
 public class Laboratory extends Room{
     public Laboratory(String name, int capacity) {
         super(name, capacity);
