@@ -39,7 +39,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Compulsory+Homework" />
+      <module name="Homework" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -63,6 +63,9 @@
       <workItem from="1646065598033" duration="4793000" />
       <workItem from="1646417783762" duration="8695000" />
       <workItem from="1646426880791" duration="90000" />
+      <workItem from="1646506254715" duration="546000" />
+      <workItem from="1646506821217" duration="320000" />
+      <workItem from="1646558452390" duration="5356000" />
     </task>
     <servers />
   </component>

@@ -1,18 +1,16 @@
 import java.util.Objects;
 
 public class Event {
-    private String name;
-    private int participants;
-    private int startTime;
-    private int endTime;
-    private Type type;
-    public Event(String name,int participants,int startTime, int endTime,Type type)
+    protected String name;
+    protected int participants;
+    protected int startTime;
+    protected int endTime;
+    public Event(String name,int participants,int startTime, int endTime)
     {
         this.name=name;
         this.participants=participants;
         this.startTime=startTime;
         this.endTime=endTime;
-        this.type=type;
     }
 
     public void setName(String newName)
@@ -31,10 +29,6 @@ public class Event {
     {
         this.endTime=newEndData;
     }
-    public void setType(Type newType)
-    {
-        this.type=newType;
-    }
 
     public String getName() {
         return name;
@@ -48,13 +42,10 @@ public class Event {
     public int getEndTime() {
         return endTime;
     }
-    public Type getType() {
-        return type;
-    }
 
     public String toString()
     {
-        return name + " " + participants + " " + startTime + " " + endTime + " " + type;
+        return name + " " + participants + " " + startTime + " " + endTime;
     }
 
     @Override
@@ -62,13 +53,13 @@ public class Event {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return participants == event.participants && startTime == event.startTime && endTime == event.endTime && Objects.equals(name, event.name) && type == event.type;
+        return participants == event.participants && startTime == event.startTime && endTime == event.endTime && Objects.equals(name, event.name);
     }
 
     //Este necesar hashCode?
     /*  @Override
     public int hashCode() {
-        return Objects.hash(name, type, capacity);
+        return Objects.hash(...);
     }*/
 }
 

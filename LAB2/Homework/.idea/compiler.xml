@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Compulsory+Homework" />
         <module name="Comp2" />
+        <module name="Homework" />
       </profile>
     </annotationProcessing>
   </component>
