@@ -1,0 +1,58 @@
+public class Computer extends Node implements Identifiable,Storage{
+    private String ip;
+    private int capacity;
+    public Computer(String name, String hardware, String adress,String ip) {
+        super(name, hardware, adress);
+        this.ip=ip;
+    }
+
+    public void setStorageCapacity(int capacity){
+        this.capacity=capacity;
+    }
+    public int getStorageCapacity(){
+        return this.capacity;
+    }
+
+    public void setIp(String ip){
+        this.ip=ip;
+    }
+    public String getIp() {
+     return ip;
+    }
+
+    public void setName(String name) {
+       this.name=name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setHardwareType(String hard) {
+        this.hardware=hard;
+    }
+
+    public String getHardwareType() {
+        return hardware;
+    }
+
+    public void setAdress(String adr) {
+       this.adress=adr;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "ip='" + ip + '\'' +
+                ", capacity=" + capacity +
+                ", name='" + name + '\'' +
+                ", hardware='" + hardware + '\'' +
+                ", adress='" + adress + '\'' +
+                '}';
+    }
+}
