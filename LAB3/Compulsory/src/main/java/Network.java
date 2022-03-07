@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
-    private List<Object> nodes = new ArrayList<Object>();
+    protected List<Object> nodes = new ArrayList<Object>();
 
     public void addNodes(Object node)
     {
@@ -19,6 +19,14 @@ public class Network {
     {
         System.out.println(n.toString());
     }
+
   }
+
+ /* public void compareByName()
+  {
+      for (:) {
+
+      }
+  }*/
 
 }
