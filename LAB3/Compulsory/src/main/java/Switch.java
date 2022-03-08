@@ -28,6 +28,7 @@ public class Switch extends Node{
         return adress;
     }
 
+
     @Override
     public String toString() {
         return "Router{" +

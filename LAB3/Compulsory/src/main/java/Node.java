@@ -1,4 +1,4 @@
-abstract class Node {
+abstract class Node{
     protected String name;
     protected String hardware;
     protected String adress;

@@ -44,13 +44,12 @@ public class Computer extends Node implements Identifiable,Storage{
         return adress;
     }
 
-
     @Override
     public String toString() {
         return "Computer{" +
+                "name='" + name + '\'' +
                 "ip='" + ip + '\'' +
                 ", capacity=" + capacity +
-                ", name='" + name + '\'' +
                 ", hardware='" + hardware + '\'' +
                 ", adress='" + adress + '\'' +
                 '}';
