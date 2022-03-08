@@ -24,8 +24,7 @@ public class Network{
         System.out.println(n.toString());
     }
   }
-
-   public void sorteaza()
+  public void sorteaza()
     {
         Collections.sort(nodes, new Comparator<Node>(){
             @Override
