@@ -2,23 +2,25 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
+
+
     public static void main(String[] args){
 
         Network net=new Network();
 
-        Computer computeA=new Computer("v1","MAC","Tg.Neamt","20.30.40.54:2024",4);
-        Router routerA=new Router("v2","MAC","P.Neamt","11.45.32.40:2000");
-        Switch switchA=new Switch("v3","Timisoara","23.54.71.45:2067");
-        Computer computeB=new Computer("v6","MAC","Iasi","20.30.40.54:2024",8);
-        Router routerB=new Router("v5","MAC","Bucuresti","11.45.32.40:2000");
-        Switch switchB=new Switch("v4","Arad","23.54.71.45:2067");
+        Computer computeA=new Computer("v1","AX-10-44-00-HD-HD","Tg.Neamt","20.30.40.54:2024",4);
+        Router routerA=new Router("v2","UA-03-28-00-AD-YD","P.Neamt","11.45.32.40:2000");
+        Switch switchA=new Switch("v3","Timisoara","Brasov");
+        Computer computeB=new Computer("v6","AF-67-94-00-XX-TX","Iasi","20.30.40.54:2024",8);
+        Router routerB=new Router("v5","AY-22-91-00-XX-AG","Bucuresti","11.45.32.40:2000");
+        Switch switchB=new Switch("v4","HS-57-25-00-XX-JV","Ilfov");
 
-        Computer computeC=new Computer("v8","MAC","Bacau","20.30.40.54:2024",16);
-        Computer computeD=new Computer("v7","MAC","Arad","20.30.40.54:2024",20);
-        Computer computeE=new Computer("v9","MAC","Cluj","20.30.40.54:2024",12);
+       /* Computer computeC=new Computer("v8","HS-57-25-12-XX-JV","Bacau","22.30.40.54:2024",16);
+        Computer computeD=new Computer("v7","HS-57-25-FH-XX-JV","Arad","20.32.40.54:2024",20);
+        Computer computeE=new Computer("v9","HS-57-25-CG-XX-JV","Cluj","20.36.40.54:2024",12);
         net.addNodes(computeC);
         net.addNodes(computeD);
-        net.addNodes(computeE);
+        net.addNodes(computeE);*/
 
         net.addNodes(computeA);
         net.addNodes(routerA);
@@ -37,21 +39,16 @@ public class Main {
         net.addCosts("v4","v6",10);
         net.addCosts("v5","v6",20);
 
-        //Inainte de sortare dupa nume
-       // net.afiseazaObiectele();
         net.sorteaza();
-
-        //System.out.println("");
-        //Dupa sortare dupa nume
         net.afiseazaObiectele();
-
-        //net.afiseazaCosturi();
-       // computeA.printDifferent();
-        net.afisareIdentifiable();
+        System.out.println("");
+        net.afiseazaCosturi();
+        System.out.println("");
+        computeA.printDifferent();
+        net.dijkstra(switchB);
+     /* net.afisareIdentifiable();
         net.sortareIdentifiable();
         System.out.println("");
-        //Dupa sortare dupa nume
-        net.afisareIdentifiable();
-
+        net.afisareIdentifiable();*/
     }
 }

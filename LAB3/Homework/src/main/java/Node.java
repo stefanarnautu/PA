@@ -8,8 +8,8 @@ abstract class Node{
     protected Map<String,Integer> timeCosts = new HashMap<>();
     public abstract void setName(String name);
     public abstract String getName();
-    public abstract void setHardwareType(String hard);
-    public abstract String getHardwareType();
+    public abstract void setHardwareAddr(String hard);
+    public abstract String getHardwareAddr();
     public abstract void setAdress(String adr);
     public abstract String getAdress();
     public abstract String toString();

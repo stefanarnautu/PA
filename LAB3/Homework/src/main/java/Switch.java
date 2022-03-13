@@ -12,11 +12,11 @@ public class Switch extends Node{
         return this.name;
     }
 
-    public void setHardwareType(String hard) {
+    public void setHardwareAddr(String hard) {
         this.hardware=hard;
     }
 
-    public String getHardwareType() {
+    public String getHardwareAddr() {
         return hardware;
     }
 
