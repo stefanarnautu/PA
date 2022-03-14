@@ -1,6 +1,8 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args){
@@ -45,9 +47,11 @@ public class Main {
         strazi.add(streetM);
         strazi.add(streetN);
 
-        Arrays.sort(new List[]{strazi},(strada1, strada2)->Street.compareByLength((Street) strada1, (Street) strada2));
+        List<Street> sortedList = strazi.stream()
+                .sorted(Comparator.comparingInt(Street::getLength))
+                .collect(Collectors.toList());
 
-        for(Street s: strazi){
+        for(Street s: sortedList){
             System.out.println(s.toString());
         }
     }

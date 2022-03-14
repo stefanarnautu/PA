@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class Street{
     }
 
     public static int compareByLength(Street str1, Street str2) {
-        return str1.length-str2.length;
+        return str1.name.compareTo(str2.name);
     }
 
     @Override
@@ -29,5 +30,6 @@ public class Street{
                 ", intersectiiAdiacente=" + intersectiiAdiacente +
                 '}';
     }
+
 }
 
