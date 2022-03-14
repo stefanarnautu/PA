@@ -28,10 +28,9 @@ public class Switch extends Node{
         return adress;
     }
 
-
     @Override
     public String toString() {
-        return "Switch{" +
+        return "S{" +
                 "name='" + name + '\'' +
                 ", hardware='" + hardware + '\'' +
                 ", adress='" + adress + '\'' + '}';

@@ -7,18 +7,21 @@ public class Network{
     {
         this.nodes.add((Node) node);
     }
+
     public Object getNode(int index)
     {
         return nodes.get(index);
     }
+
     public void afiseazaObiectele() {
         for (Object n : nodes) {
             System.out.println(n.toString());
         }
 
     }
-    public void sorteaza()
-    {
+
+    //Sortarea obiectelor cu ajutorul Collections
+    public void sorteaza() {
         Collections.sort(nodes, new Comparator<Node>(){
             @Override
             public int compare(Node n1, Node n2){
@@ -27,8 +30,8 @@ public class Network{
         });
     }
 
-    public void addCosts(String nameFrom,String nameTo, int cost)
-    {
+    //Adaugarea costurilor pe muchii in mapa fiecarui nod care este incident cu muchia
+    public void addCosts(String nameFrom,String nameTo, int cost) {
         for(Node n:nodes)
         {
             if(n.getName().equals(nameFrom))
@@ -52,7 +55,9 @@ public class Network{
         }
     }
 
-    public void sortareIdentifiable(){
+    //Soartare obiectelor care au o adresa hardware, si afisarea lor
+    // (nu modific lista de obiecte dar am o portiune de cod care poate sa faca si asta; este pus in comentariu)
+    public void afisareSortareIdentifiable(){
         List<Node> nodesWithIdent = new ArrayList<>();
         for(Node n:nodes){
             if(n instanceof Computer || n instanceof Router){
@@ -66,34 +71,11 @@ public class Network{
             }
         });
 
-        int contor=0;
-        Integer[] vLocNou = new Integer[nodesWithIdent.size()];
-        int j=0;
-        for(Node n:nodes){
-            if(n instanceof Switch){
-                contor++;
-            }
-            else{
-           vLocNou[j]=contor;
-           j++;
-           contor++;}
-        }
-        contor=0;
-        for(int i=0;i<vLocNou.length;i++){
-            nodes.add(vLocNou[i],nodesWithIdent.get(contor));
-            nodes.remove(vLocNou[i]+1);
-           contor++;
-        }
+        for(Node n : nodesWithIdent) System.out.println(n);
     }
 
-    public void afisareIdentifiable(){
-        for(Node n : nodes){
-        if (n instanceof Computer || n instanceof Router )
-            System.out.println(n.getHardwareAddr());
-        }
-    }
-    public int minDistance(Integer[] shortPath, boolean[] visited)
-    {
+    //Functie pentru Dijkstra
+    public int minDistance(Integer[] shortPath, boolean[] visited) {
         Integer min =Integer.MAX_VALUE;
         int min_index=0;
 
@@ -105,13 +87,14 @@ public class Network{
         return min_index;
     }
 
-    void printSolution(Integer[] shortPath)
-    {
+    //Afisare solutie Dijkstra
+    void printSolution(Integer[] shortPath) {
         System.out.println("Cel mai scurt drum este:");
         for (int i = 0; i < this.nodes.size(); i++)
             System.out.println(i+1+" "+shortPath[i]);
     }
 
+    //Implementare Dijkstra
     public void dijkstra(Node nodStart){
         int n=this.nodes.size(), i,j=0;
         Integer[] shortPath= new Integer[n];
@@ -157,15 +140,6 @@ public class Network{
             }
         }
         printSolution(shortPath);
-
-      /*
-      for(int kk=0;kk< graph.length;kk++) {
-         for (int kkk = 0; kkk < graph.length; kkk++) {
-                System.out.print(graph[kk][kkk]+" ");
-            }
-            System.out.println("");
-        }
-        */
     }
 
 

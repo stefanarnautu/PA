@@ -38,11 +38,9 @@ public class Router extends Node implements Identifiable{
         return adress;
     }
 
-
-
     @Override
     public String toString() {
-        return "Router{" +
+        return "R{" +
                 "name='" + name + '\'' +
                 ", hardware='" + hardware + '\'' +
                 ", adress='" + adress + '\'' +

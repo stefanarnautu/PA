@@ -47,12 +47,12 @@ public class Computer extends Node implements Identifiable,Storage{
 
     @Override
     public String toString() {
-        return "Computer{" +
+        return "C{" +
                 "name='" + name + '\'' +
-                "ip='" + ip + '\'' +
-                ", capacity=" + capacity +
                 ", hardware='" + hardware + '\'' +
                 ", adress='" + adress + '\'' +
+                ", ip='" + ip + '\'' +
+                ", capacity=" + capacity +
                 '}';
     }
     public void addTimeCosts(String toWhere,int cost)

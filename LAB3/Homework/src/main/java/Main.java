@@ -1,18 +1,13 @@
-import java.util.Arrays;
-import java.util.Collections;
-
 public class Main {
-
-
     public static void main(String[] args){
 
         Network net=new Network();
 
         Computer computeA=new Computer("v1","AX-10-44-00-HD-HD","Tg.Neamt","20.30.40.54:2024",4);
         Router routerA=new Router("v2","UA-03-28-00-AD-YD","P.Neamt","11.45.32.40:2000");
-        Switch switchA=new Switch("v3","Timisoara","Brasov");
-        Computer computeB=new Computer("v6","AF-67-94-00-XX-TX","Iasi","20.30.40.54:2024",8);
-        Router routerB=new Router("v5","AY-22-91-00-XX-AG","Bucuresti","11.45.32.40:2000");
+        Switch switchA=new Switch("v3","GH-03-28-00-AD-YD","Brasov");
+        Computer computeB=new Computer("v6","JK-67-94-00-XX-TX","Iasi","20.30.40.54:2024",8);
+        Router routerB=new Router("v5","DY-22-91-00-XX-AG","Bucuresti","11.45.32.40:2000");
         Switch switchB=new Switch("v4","HS-57-25-00-XX-JV","Ilfov");
 
        /* Computer computeC=new Computer("v8","HS-57-25-12-XX-JV","Bacau","22.30.40.54:2024",16);
@@ -41,14 +36,13 @@ public class Main {
 
         net.sorteaza();
         net.afiseazaObiectele();
-        System.out.println("");
+        System.out.println(" ");
         net.afiseazaCosturi();
-        System.out.println("");
+        System.out.println(" ");
         computeA.printDifferent();
+        System.out.println(" ");
         net.dijkstra(switchB);
-     /* net.afisareIdentifiable();
-        net.sortareIdentifiable();
-        System.out.println("");
-        net.afisareIdentifiable();*/
+        System.out.println(" ");
+        net.afisareSortareIdentifiable();
     }
 }
