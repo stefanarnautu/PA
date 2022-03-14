@@ -1,5 +1,5 @@
 public class Intersection {
-    protected String name;
+    private String name;
 
     public Intersection(String name){
         this.name=name;
