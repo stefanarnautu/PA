@@ -42,7 +42,7 @@ public class Main {
         strazi.add(streetL);
         strazi.add(streetM);
         strazi.add(streetN);
-        strazi.sort(Street::compareByLength);
+        Collections.sort(strazi,(a,b)->Street.compareByLength(a,b));
 
         for(Street s: strazi){
             System.out.println(s.toString());
