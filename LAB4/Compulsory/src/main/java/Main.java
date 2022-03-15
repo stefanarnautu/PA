@@ -1,8 +1,4 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
@@ -46,13 +42,26 @@ public class Main {
         strazi.add(streetL);
         strazi.add(streetM);
         strazi.add(streetN);
+        strazi.sort(Street::compareByLength);
 
-        List<Street> sortedList = strazi.stream()
-                .sorted(Comparator.comparingInt(Street::getLength))
-                .collect(Collectors.toList());
-
-        for(Street s: sortedList){
+        for(Street s: strazi){
             System.out.println(s.toString());
         }
+        Set<Intersection> intersectii=new HashSet<>();
+        intersectii.add(intersection1);
+        intersectii.add(intersection2);
+        intersectii.add(intersection3);
+        intersectii.add(intersection4);
+        intersectii.add(intersection5);
+        intersectii.add(intersection6);
+        intersectii.add(intersection7);
+        intersectii.add(intersection8);
+        intersectii.add(intersection9);
+
+        for(Intersection i:intersectii){
+            System.out.println(i);
+        }
+
+
     }
 }
