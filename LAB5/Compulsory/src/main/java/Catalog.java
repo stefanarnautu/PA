@@ -12,13 +12,12 @@ public class Catalog implements IManagmentCatalog{
     public void addItem(Item item){
         items.add(item);
     }
+
     @Override
     public String toString() {
         return "Catalog{" +
                 "name='" + name + '\'' +
-                "items=" + items +'\'' +
+                ", items=" + items +
                 '}';
     }
-
-
 }
