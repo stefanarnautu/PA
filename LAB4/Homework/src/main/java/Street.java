@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clasa corespunzatoare strazilor
+ */
 public class Street{
     protected String name;
     private Integer lengthOf;
@@ -22,6 +25,12 @@ public class Street{
         return lengthOf;
     }
 
+    /**
+     * Compara doua strazi in functie de lungimea lor
+     * @param str1 Prima strada
+     * @param str2 A doua strada
+     * @return retunrneaza true daca vrima este mai lunga si false daca nu este
+     */
     public static int compareByLength(Street str1, Street str2) {
         return str1.lengthOf.compareTo(str2.getLength());
     }

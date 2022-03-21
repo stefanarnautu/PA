@@ -1,8 +1,15 @@
 import java.util.*;
 import java.lang.*;
 
+/**
+ * Algoritmul lui Kruskal pentru gasirea MST
+ */
+
 public class Kruskal {
 
+    /**
+     * Clasa pentru a creea un obiect de tip edge.
+     */
     class Edge implements Comparable<Edge>
     {
         int src, dest, weight;
@@ -20,6 +27,11 @@ public class Kruskal {
     int V, E;
     Edge edge[];
 
+    /**
+     * Constructorul
+     * @param vertices numarul de noduri ale grafului
+     * @param edges numarul de muchii ale grafului
+     */
     Kruskal(int vertices, int edges)
     {
         V = vertices;
@@ -29,14 +41,25 @@ public class Kruskal {
             edge[i] = new Edge();
     }
 
-    int find(subset subsets[], int i)
+    /**
+     * @param subsets subsetul in care se face cutarea
+     * @param varf nodul pentru care se face cautarea
+     * @return
+     */
+    int find(subset subsets[], int varf)
     {
-        if (subsets[i].parent != i)
-            subsets[i].parent = find(subsets, subsets[i].parent);
+        if (subsets[varf].parent != varf)
+            subsets[varf].parent = find(subsets, subsets[varf].parent);
 
-        return subsets[i].parent;
+        return subsets[varf].parent;
     }
 
+    /**
+     * Implementare union find
+     * @param subsets subestul la momentul apelarii
+     * @param varful1 varful 1 al muchiei alese
+     * @param varful2 varful 2 al muchiei alese
+     */
     void Union(subset subsets[], int varful1, int varful2)
     {
         int xroot = find(subsets, varful1);
@@ -52,6 +75,9 @@ public class Kruskal {
                 }
     }
 
+    /**
+     * Implemetare Kruskal si afisare a solutiei
+     */
     void KruskalMST()
     {
         Edge result[] = new Edge[V];
