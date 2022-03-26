@@ -1,11 +1,3 @@
-import com.fasterxml.jackson.core.exc.StreamReadException;
-import com.fasterxml.jackson.databind.DatabindException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
-import java.io.File;
-import java.io.IOException;
-
 public class Main{
     public static void main(String[] args) {
 
@@ -16,27 +8,9 @@ public class Main{
         catalog.addItem(book1);
         catalog.addItem(book2);
 
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-            objectMapper.writeValue(new File("target/item.json"), catalog);
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
+        CatalogUtil.save(catalog,"target/item.json");
+        Catalog catalogNou =  CatalogUtil.load("target/item.json");
 
-        Catalog catalogNou = new Catalog();
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            catalogNou = objectMapper.readValue(new File("target/item.json"), Catalog.class);
-
-        } catch (StreamReadException e) {
-            e.printStackTrace();
-        } catch (DatabindException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         if (catalogNou != null) {
             for (Item item : catalogNou.getItems()) {
                 System.out.println("title = " + item.getTitle());
