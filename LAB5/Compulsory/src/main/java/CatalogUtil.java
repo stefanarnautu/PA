@@ -12,7 +12,7 @@ public class CatalogUtil {
             objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
             objectMapper.writeValue(new File("target/item.json"), catalog);
         } catch (final Exception e) {
-            e.printStackTrace();
+            System.out.println("Error at write: " + e);
         }
     }
 
@@ -22,13 +22,13 @@ public class CatalogUtil {
             ObjectMapper objectMapper = new ObjectMapper();
             catalog = objectMapper.readValue(new File(path), Catalog.class);
         } catch (StreamReadException e) {
-            e.printStackTrace();
+            System.out.println("Stream Read Exception: " + e);
+            //e.printStackTrace();
         } catch (DatabindException e) {
-            e.printStackTrace();
+            System.out.println("Databind Exception: " + e);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("IO Exception at: " + e);
         }
       return catalog;
     }
-
 }
