@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Homework:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -15,6 +20,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -31,15 +37,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Compulsory" />
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="Homework" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -61,8 +76,10 @@
       <workItem from="1647871412013" duration="9016000" />
       <workItem from="1648298945951" duration="176000" />
       <workItem from="1648316573787" duration="1388000" />
-      <workItem from="1648384596924" duration="508000" />
-      <workItem from="1648397827055" duration="736000" />
+      <workItem from="1648384596924" duration="379000" />
+      <workItem from="1648385111768" duration="7284000" />
+      <workItem from="1648392684907" duration="273000" />
+      <workItem from="1648392971068" duration="6286000" />
     </task>
     <servers />
   </component>
