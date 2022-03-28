@@ -1,6 +1,7 @@
 package main;
 
 import commands.LoadData;
+import commands.ReportCommand;
 import commands.SaveData;
 import commands.ViewCommand;
 import objects.Item;
@@ -15,9 +16,9 @@ public class Main{
 
             }
         }
-
-        //ViewCommand.view("target/catalog.json");
-
+        ViewCommand.view(catalog.getItems().get(0));
+        ViewCommand.view(catalog.getItems().get(1));
+        ReportCommand.view(catalog);
         System.out.println(catalog.toString());
         SaveData.save(catalog,"target/catalog.json");
     }

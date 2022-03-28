@@ -11,7 +11,7 @@ public class SaveData {
             objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
             objectMapper.writeValue(new File(path), catalog);
         } catch (final Exception e) {
-            System.out.println("Error at write: " + e);
+            System.out.println("Error at write:\n" + e);
         }
     }
 }

@@ -5,7 +5,7 @@
     "type" : "Item",
     "id" : "knuth67",
     "title" : "The Art of Computer Programming",
-    "location" : "d:/books/programming/tacp.ps",
+    "location" : "D:/a.FACULTATE/PA/PA/LAB5/Homework/target/catalog.json",
     "year" : 1967,
     "author" : "Donald E. Knuth",
     "type" : "book"
@@ -16,6 +16,6 @@
     "location" : "https://docs.oracle.com/javase/specs/jls/se17/html/index.html",
     "year" : 2021,
     "author" : "James Gosling & others",
-    "type" : "book"
+    "type" : "article"
   } ]
 }

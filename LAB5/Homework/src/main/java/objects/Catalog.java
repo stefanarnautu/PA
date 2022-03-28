@@ -3,7 +3,6 @@ package objects;
 import com.fasterxml.jackson.annotation.*;
 import interfaces.AddElement;
 import interfaces.IManagmentCatalog;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +17,6 @@ import java.util.List;
 public class Catalog implements IManagmentCatalog, Serializable, AddElement {
     private String name;
     private List<Item> items = new ArrayList<>();
-
-
-    public Catalog(String name, List<Item> items){
-        this.name=name;
-        this.items.addAll(items);
-    }
 
     public Catalog(){
     }
