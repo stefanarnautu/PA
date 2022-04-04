@@ -89,6 +89,7 @@ public class HelloController implements Initializable {
                 }
             }
         }
+        
     }
     public void load(ActionEvent e){ System.out.println("Load"); }
     public void save(ActionEvent e){
