@@ -52,30 +52,44 @@ public class HelloController implements Initializable {
         graphicsContext = canvas.getGraphicsContext2D();
         graphicsContext.setFill(Color.WHITE);
         graphicsContext.fillRect(0,0,550,500);
+
+        graphicsContext.setStroke(Color.BLACK);
+        graphicsContext.setLineWidth(0.01);
     }
 
-    public void setCanvas(ActionEvent e){
+    public void setCanvas(ActionEvent e) {
 
         graphicsContext.setFill(Color.WHITE);
-        graphicsContext.fillRect(0,0,550,500);
+        graphicsContext.fillRect(0, 0, 550, 500);
 
         this.affine = new Affine();
-        this.affine.appendScale(550/10f,500/10f);
+        this.affine.appendScale(550 / 10f, 500 / 10f);
         graphicsContext.setTransform(this.affine);
 
-        int topSpace,leftSpace;
+        int topSpace, leftSpace;
 
-        topSpace = 5 - spinner1.getValue()/2;
-        leftSpace = 5 - spinner2.getValue()/2;
+        topSpace = 5 - (int) Math.ceil((float) spinner1.getValue() / 2);
+        leftSpace = 5 - (int) Math.ceil((float) spinner2.getValue() / 2);
 
-        for(int rowG=topSpace; rowG<this.spinner1.getValue()+topSpace;rowG++) {
-            for (int columnG = leftSpace; columnG < this.spinner2.getValue()+leftSpace; columnG++) {
+        for (int rowG = topSpace; rowG < this.spinner1.getValue() + topSpace; rowG++) {
+            for (int columnG = leftSpace; columnG < this.spinner2.getValue() + leftSpace; columnG++) {
                 graphicsContext.setFill(Color.BLACK);
-                graphicsContext.fillOval(rowG+0.2,columnG+0.2, 0.2, 0.2);
+                graphicsContext.fillOval(rowG + 0.2, columnG + 0.2, 0.2, 0.2);
+            }
+        }
+        for (int rowG = topSpace; rowG < this.spinner1.getValue() + topSpace; rowG++) {
+            for (int columnG = leftSpace; columnG < this.spinner2.getValue() + leftSpace; columnG++) {
+
+                if (columnG < this.spinner2.getValue() + leftSpace - 1) {
+                        graphicsContext.strokeLine(rowG + 0.3, columnG + 0.3, rowG + 0.3, columnG + 1.3);
+                }
+
+                if (rowG < this.spinner1.getValue() + topSpace - 1) {
+                        graphicsContext.strokeLine(rowG + 0.3, columnG + 0.3, rowG + 1.3, columnG + 0.3);
+                }
             }
         }
     }
-
     public void load(ActionEvent e){ System.out.println("Load"); }
     public void save(ActionEvent e){
         System.out.println("Save");
