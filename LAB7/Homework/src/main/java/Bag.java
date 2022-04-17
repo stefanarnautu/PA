@@ -1,15 +1,28 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Bag {
     private final List<Tile> letters = new ArrayList<>();
+    private boolean available = false;
 
     public Bag() {
-        for (char c = 'a'; c < 'z'; c++) {
-            for(int numberOfDuplicate=0; numberOfDuplicate<10;numberOfDuplicate++){
-                letters.add(new Tile(c));
+        try {
+            File myObj = new File("./target/instances/instance.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                for(int numberOf=0;numberOf<Integer.parseInt(String.valueOf(data.charAt(2)));numberOf++) {
+                    letters.add(new Tile(data.charAt(0)));
+                }
             }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
     public synchronized List<Tile> extractTiles(int howMany) {
@@ -29,6 +42,13 @@ public class Bag {
             letters.remove(number);
         }
         return extracted;
+    }
+
+    public synchronized void addTileBack(List<Tile> reuse){
+        for(Tile t : reuse){
+            this.letters.add(t);
+        }
+        System.out.println("Au ramas " + letters.size() + " litere.");
     }
 
 }

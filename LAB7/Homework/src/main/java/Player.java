@@ -8,42 +8,57 @@ public class Player implements Runnable{
     private int points=0;
 
     public Player(String name) { this.name = name; }
-    private void submitWord() {
+    private void submitWord() throws InterruptedException {
+
         List<Tile> extracted = game.getBag().extractTiles(7);
+
         if (extracted.isEmpty()) {
             running = false;
+            return;
         }
-        System.out.println(this.name);
+        System.out.println();
         for(int letter=0;letter<extracted.size();letter++){
             System.out.print(extracted.get(letter).toString() + "    ");
         }
+        synchronized (this) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\nWrite a message" + this.name + ": ");
+            String message = scanner.nextLine();
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Write a message" + this.name +": ");
-        String message = scanner.nextLine();
-
-        boolean ok=false;
-        for(int wordLetter=0;wordLetter<message.length();wordLetter++){
-            ok=false;
-            for (Tile t: extracted) {
-                if(t.getLetter() == message.charAt(wordLetter)) {
-                    ok = true;
-                    this.points+=t.getPoints();
+            boolean ok, okTotal = true;
+            for (int wordLetter = 0; wordLetter < message.length(); wordLetter++) {
+                ok = false;
+                for (Tile t : extracted) {
+                    if (t.getLetter().compareTo(String.valueOf(message.charAt(wordLetter))) == 0) {
+                        ok = true;
+                        this.points += t.getPoints();
+                        break;
+                    }
+                }
+                if (ok == false) {
+                    System.out.println("Cuvantul nu este formant din literele corespunzatoare(" + this.name + ")");
+                    okTotal = false;
                     break;
                 }
             }
-            if(ok==false){
-                System.out.println("Cuvantul nu este formant din literele corespunzatoare("+this.name+")");
-                break;
+            if (okTotal == true && message.length() > 0) {
+                for (int wordLetter = 0; wordLetter < message.length(); wordLetter++) {
+                    ok = false;
+                    for (Tile t : extracted) {
+                        if (t.getLetter().compareTo(String.valueOf(message.charAt(wordLetter))) == 0) {
+                            ok = true;
+                            this.points += t.getPoints();
+                            extracted.remove(t);
+                            break;
+                        }
+                    }
+                }
+                this.game.getBoard().addWord(this, message, this.points);
             }
-            else{
 
-                this.game.getBoard().addWord(this,message,this.points);
-            }
+            game.getBag().addTileBack(extracted);
         }
-
-        while(!this.game.getDictionary().isWord(message))
-        System.out.println();
+        Thread.sleep(100);
     }
     public String getName() {
       return this.name;
@@ -55,13 +70,17 @@ public class Player implements Runnable{
 
     @Override
     public void run() {
-        while(this.running)
-        this.submitWord();
+        while(this.running) {
+            try {
+                this.submitWord();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         if(!running){
             System.out.println(this.name+" a castigat.");
             System.out.println(game.getBoard().toString());
-
         }
 
        /*

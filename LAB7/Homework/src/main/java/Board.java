@@ -11,7 +11,7 @@ public class Board {
         if(!point.containsKey(player.getName()))
         point.put(player.getName(),points);
         else point.replace(player.getName(),points);
-        System.out.println(player.getName() + ": " + word);
+        System.out.println("To dictionary: " + player.getName() + ": " + word);
     }
 
     @Override

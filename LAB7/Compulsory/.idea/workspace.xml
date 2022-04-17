@@ -33,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Homework" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -59,6 +59,7 @@
       <updated>1649077714819</updated>
       <workItem from="1649077715984" duration="6826000" />
       <workItem from="1650199719914" duration="11249000" />
+      <workItem from="1650211576717" duration="19000" />
     </task>
     <servers />
   </component>

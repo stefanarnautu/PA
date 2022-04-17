@@ -34,11 +34,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Compulsory" />
+      <module name="Homework" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -59,6 +60,7 @@
       <updated>1649077714819</updated>
       <workItem from="1649077715984" duration="6826000" />
       <workItem from="1650199719914" duration="11249000" />
+      <workItem from="1650211598329" duration="6226000" />
     </task>
     <servers />
   </component>
