@@ -8,7 +8,7 @@ public class Main {
         Connection con = null;
         try {
             con = DriverManager.getConnection(
-                    url, "myUserName", "mySecretPassword");
+                    url, "Student", "STUDENT");
         } catch(SQLException e) {
             System.err.println("Cannot connect to DB: " + e);
         } finally {
