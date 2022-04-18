@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d5cf82f-156b-42ba-ac67-faf9e046d203" name="Changes" comment="" />
+    <list default="true" id="46a5a061-ce35-40ec-9799-412350faf09d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +23,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="27KnaqMfy78KXJg27Ib9rtSR1V5" />
+  <component name="ProjectId" id="27yUsrkjPyGsuoAZBvoJ3tqInJV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,13 +33,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Homework2" />
+      <module name="Compulsory" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -53,35 +51,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6d5cf82f-156b-42ba-ac67-faf9e046d203" name="Changes" comment="" />
-      <created>1649077714819</created>
+      <changelist id="46a5a061-ce35-40ec-9799-412350faf09d" name="Changes" comment="" />
+      <created>1650292030547</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1649077714819</updated>
-      <workItem from="1649077715984" duration="6826000" />
-      <workItem from="1650199719914" duration="11249000" />
-      <workItem from="1650211598329" duration="6226000" />
-      <workItem from="1650260208339" duration="6542000" />
-      <workItem from="1650267485582" duration="3807000" />
-      <workItem from="1650284846261" duration="6958000" />
+      <updated>1650292030547</updated>
+      <workItem from="1650292031697" duration="176000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Compulsory$Main.ic" NAME="Main Coverage Results" MODIFIED="1650210290615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
