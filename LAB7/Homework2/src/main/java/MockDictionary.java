@@ -18,6 +18,9 @@ public class MockDictionary {
         }
         return false;
     }
+
+    //creaza dictionarul prin citire din fisier
+
     public MockDictionary(){
         try {
             File myObj = new File("./target/words/words.txt");

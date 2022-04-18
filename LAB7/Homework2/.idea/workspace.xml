@@ -33,13 +33,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Homework2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Homework" />
+      <module name="Homework2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -63,7 +63,7 @@
       <workItem from="1650211598329" duration="6226000" />
       <workItem from="1650260208339" duration="6542000" />
       <workItem from="1650267485582" duration="3807000" />
-      <workItem from="1650284736841" duration="106000" />
+      <workItem from="1650284846261" duration="6258000" />
     </task>
     <servers />
   </component>

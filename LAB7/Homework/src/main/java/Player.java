@@ -2,14 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.Thread.sleep;
+
 public class Player implements Runnable{
     private String name;
     private Game game;
-    private boolean running=true;
+    private boolean running = true;
     private int points=0;
 
     public Player(String name) { this.name = name; }
-    private void submitWord() throws InterruptedException {
+    private synchronized void submitWord() throws InterruptedException {
+
+        try {
+            sleep((int) (Math.random() * 1000));
+        } catch (InterruptedException e) {
+            System.err.println(e);
+        }
 
         List<Tile> extracted = game.getBag().extractTiles(7);
         List<Tile> extractedInitial = new ArrayList<>();
@@ -52,15 +60,15 @@ public class Player implements Runnable{
                     game.getBag().addTileBack(extracted);
                     this.game.getBoard().addWord(this, message, this.points);
                     System.out.println(this.name + " are " + this.points + " puncte.");
-                } else  System.out.println("Cuvantul nu exista in dictionar.");
+                } else  System.out.println("Cuvantul nu exista in dictionar.(" + this.name + ")");
             }
-            Thread.sleep(100);
+            sleep(100);
         }
 
     }
 
     public String getName() {
-      return this.name;
+        return this.name;
     }
 
     public void setGame(Game game) {
