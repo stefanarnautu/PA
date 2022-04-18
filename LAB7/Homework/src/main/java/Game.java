@@ -16,11 +16,6 @@ public class Game {
         for (Player player : players){
              new Thread(player).start();
              sleep(100);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 

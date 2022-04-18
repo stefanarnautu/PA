@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +12,9 @@ public class Player implements Runnable{
     private void submitWord() throws InterruptedException {
 
         List<Tile> extracted = game.getBag().extractTiles(7);
+        List<Tile> extractedInitial = new ArrayList<>();
+
+        extractedInitial.addAll(extracted);
 
         if (extracted.isEmpty()) {
             running = false;
@@ -22,9 +26,8 @@ public class Player implements Runnable{
         }
         synchronized (this) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("\nWrite a message" + this.name + ": ");
+            System.out.println("\nFormeaza un cuvant cu literele de mai sus " + this.name + ": ");
             String message = scanner.nextLine();
-
             boolean ok, okTotal = true;
             for (int wordLetter = 0; wordLetter < message.length(); wordLetter++) {
                 ok = false;
@@ -32,34 +35,30 @@ public class Player implements Runnable{
                     if (t.getLetter().compareTo(String.valueOf(message.charAt(wordLetter))) == 0) {
                         ok = true;
                         this.points += t.getPoints();
+                        extracted.remove(t);
                         break;
                     }
                 }
                 if (ok == false) {
                     System.out.println("Cuvantul nu este formant din literele corespunzatoare(" + this.name + ")");
                     okTotal = false;
+                    game.getBag().addTileBack(extractedInitial);
                     break;
                 }
             }
-            if (okTotal == true && message.length() > 0) {
-                for (int wordLetter = 0; wordLetter < message.length(); wordLetter++) {
-                    ok = false;
-                    for (Tile t : extracted) {
-                        if (t.getLetter().compareTo(String.valueOf(message.charAt(wordLetter))) == 0) {
-                            ok = true;
-                            this.points += t.getPoints();
-                            extracted.remove(t);
-                            break;
-                        }
-                    }
-                }
-                this.game.getBoard().addWord(this, message, this.points);
-            }
 
-            game.getBag().addTileBack(extracted);
+            if (okTotal == true && message.length() > 0) {
+                if (this.game.getDictionary().isWord(message)) {
+                    game.getBag().addTileBack(extracted);
+                    this.game.getBoard().addWord(this, message, this.points);
+                    System.out.println(this.name + " are " + this.points + " puncte.");
+                } else  System.out.println("Cuvantul nu exista in dictionar.");
+            }
+            Thread.sleep(100);
         }
-        Thread.sleep(100);
+
     }
+
     public String getName() {
       return this.name;
     }
@@ -78,16 +77,7 @@ public class Player implements Runnable{
             }
         }
 
-        if(!running){
-            System.out.println(this.name+" a castigat.");
-            System.out.println(game.getBoard().toString());
-        }
-
-       /*
-        while(running){
-            this.submitWord();
-        }
-
-        if(!running) System.out.println("Win" + this.name);*/
+        System.out.println(this.name+" a castigat.");
+        System.out.println(game.getBoard().toString());
     }
 }

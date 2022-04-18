@@ -48,7 +48,7 @@ public class Bag {
         for(Tile t : reuse){
             this.letters.add(t);
         }
-        System.out.println("Au ramas " + letters.size() + " litere.");
+        //System.out.println("Au ramas " + letters.size() + " litere.");
     }
 
 }
