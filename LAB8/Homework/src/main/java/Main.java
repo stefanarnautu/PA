@@ -1,15 +1,33 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+
+    public static double distanceBeetween(double lat1, double lat2, double lon1, double lon2)
+    {
+        lon1 = Math.toRadians(lon1);
+        lon2 = Math.toRadians(lon2);
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        double dlon = lon2 - lon1;
+        double dlat = lat2 - lat1;
+        double a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(dlon / 2),2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        double r = 6371;
+
+        return(c * r);
+    }
+
+    public static void main(String[] args) {
         try {
             Database.createConnection();
             Connection con = Database.getConnection();
             var continents = new ContinentDAO();
             var countries = new CountryDAO();
             var cities = new Cities();
-            int numberOfLines;
           /*
+            int numberOfLines;
             try (Statement stmt = con.createStatement();
                  ResultSet rs = stmt.executeQuery("select count(*) from mydata")) {
                 if(rs.next())
@@ -34,19 +52,37 @@ public class Main {
             System.out.println(cities.findByName("Bucharest"));
           */
 
-            double latitudine, longitudine;
+            String firstCountry,secondCountry;
+            Scanner console = new Scanner(System.in);
+            System.out.print("Enter first country: ");
+            firstCountry = console.nextLine();
+            System.out.print("Enter second country: ");
+            secondCountry = console.nextLine();
+
+            double latitudine1, longitudine1,latitudine2, longitudine2;
 
             try (Statement stmt = con.createStatement();
-                 ResultSet rs = stmt.executeQuery("select latitude,longitude from cities where id="+ cities.findByName("Bucharest"))) {
+                 ResultSet rs = stmt.executeQuery("select latitude,longitude from cities where id="+ cities.findByName(firstCountry))) {
                 if (rs.next()) {
-                    latitudine = rs.getDouble(1);
-                    longitudine = rs.getDouble(2);
+                    latitudine1 = rs.getDouble(1);
+                    longitudine1 = rs.getDouble(2);
                 } else {
-                    latitudine = 0;
-                    longitudine = 0;
+                    latitudine1 = 0;
+                    longitudine1 = 0;
                 }
             }
-            System.out.println(latitudine + "  " + longitudine);
+
+            try (Statement stmt = con.createStatement();
+                 ResultSet rs = stmt.executeQuery("select latitude,longitude from cities where id="+ cities.findByName(secondCountry))) {
+                if (rs.next()) {
+                    latitudine2 = rs.getDouble(1);
+                    longitudine2 = rs.getDouble(2);
+                } else {
+                    latitudine2 = 0;
+                    longitudine2 = 0;
+                }
+            }
+            System.out.println(String.format("%.3f",distanceBeetween(latitudine1, latitudine2, longitudine1, longitudine2)) + " K.M. de la " + firstCountry + " la " + secondCountry + ".");
 
             Database.getConnection().close();
         } catch (SQLException e) {
