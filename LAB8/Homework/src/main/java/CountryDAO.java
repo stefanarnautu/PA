@@ -4,7 +4,7 @@ public class CountryDAO {
     public void create(String nume,String code,int continentId) throws SQLException {
         Connection con = Database.getConnection();
         if(findByName(nume)!=null){
-            System.out.println("Exista deja aceasta tara in baza de date");
+            System.out.println(nume + " exista in baza de date.");
         }
         else {
             try (PreparedStatement pstmt = con.prepareStatement("insert into countries (name,code,continent) values (?,?,?)")) {

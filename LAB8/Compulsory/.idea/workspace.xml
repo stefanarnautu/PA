@@ -33,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LAB7/Compulsory" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Homework" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -63,6 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1650292030547</updated>
       <workItem from="1650292031697" duration="3173000" />
+      <workItem from="1651216347547" duration="7017000" />
+      <workItem from="1651253544364" duration="116000" />
     </task>
     <servers />
   </component>
