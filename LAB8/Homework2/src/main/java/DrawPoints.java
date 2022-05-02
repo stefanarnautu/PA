@@ -81,7 +81,7 @@ public class DrawPoints extends JPanel {
         this.setBackground(Color.gray);
         Integer nrOfLines = numberOfCities();
         Connection con = Database.getConnection();
-        Font font = new Font("Verdana", Font.BOLD, 6);
+        Font font = new Font("Verdana", Font.BOLD, 8);
         g2d.setFont(font);
         double xDraw,yDraw;
 

@@ -34,7 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LAB8/Compulsory" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -75,6 +75,7 @@
       <workItem from="1651487868328" duration="7000" />
       <workItem from="1651487907032" duration="2924000" />
       <workItem from="1651498129835" duration="1821000" />
+      <workItem from="1651502686348" duration="303000" />
     </task>
     <servers />
   </component>

@@ -33,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Homework2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -68,6 +68,8 @@
       <workItem from="1651254544748" duration="4000" />
       <workItem from="1651301818266" duration="6911000" />
       <workItem from="1651338329889" duration="60000" />
+      <workItem from="1651502735099" duration="4000" />
+      <workItem from="1651502866234" duration="303000" />
     </task>
     <servers />
   </component>
