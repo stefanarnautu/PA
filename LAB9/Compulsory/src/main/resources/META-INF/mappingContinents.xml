@@ -1,0 +1,8 @@
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" version="2.1">
+  <description>Continents</description>
+    
+    <entity class="Objects.Continents">
+
+    </entity>
+
+</entity-mappings>
