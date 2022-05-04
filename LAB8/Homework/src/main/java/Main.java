@@ -26,7 +26,7 @@ public class Main {
             var continents = new ContinentDAO();
             var countries = new CountryDAO();
             var cities = new Cities();
-          /*
+
             int numberOfLines;
             try (Statement stmt = con.createStatement();
                  ResultSet rs = stmt.executeQuery("select count(*) from mydata")) {
@@ -50,7 +50,7 @@ public class Main {
             }
             Database.getConnection().commit();
             System.out.println(cities.findByName("Bucharest"));
-          */
+
 
             String firstCountry,secondCountry;
             Scanner console = new Scanner(System.in);
