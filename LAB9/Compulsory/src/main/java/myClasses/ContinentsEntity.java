@@ -3,6 +3,9 @@ package myClasses;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "ContinentsEntity.getLastId", query = "SELECT e.id from ContinentsEntity e order by e.id DESC")
+@NamedQuery(name = "ContinentsEntity.verify", query = "SELECT count(e.id) from ContinentsEntity e where e.name=?1")
+@NamedQuery(name = "ContinentsEntity.findByName", query = "SELECT e.id from ContinentsEntity e where e.name=:nameSearched")
 @Table(name = "continents", schema = "public", catalog = "lab8pa")
 public class ContinentsEntity {
     @Id
@@ -47,5 +50,13 @@ public class ContinentsEntity {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ContinentsEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

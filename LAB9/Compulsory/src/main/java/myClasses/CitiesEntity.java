@@ -3,6 +3,9 @@ package myClasses;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "CitiesEntity.getLastId", query = "SELECT e.id from CitiesEntity e order by e.id DESC")
+@NamedQuery(name = "CitiesEntity.verify", query = "SELECT count(e.id) from CitiesEntity e where e.name=?1")
+@NamedQuery(name = "CitiesEntity.findByName", query = "SELECT e.id from CitiesEntity e where e.name=:nameSearched")
 @Table(name = "cities", schema = "public", catalog = "lab8pa")
 public class CitiesEntity {
     @Id

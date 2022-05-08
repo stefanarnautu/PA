@@ -66,7 +66,8 @@
       <updated>1651994898846</updated>
       <workItem from="1651994900620" duration="57000" />
       <workItem from="1651995021757" duration="3454000" />
-      <workItem from="1651998521238" duration="1134000" />
+      <workItem from="1651998521238" duration="1437000" />
+      <workItem from="1652005474913" duration="10635000" />
     </task>
     <servers />
   </component>
@@ -83,5 +84,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
