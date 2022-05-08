@@ -1,7 +1,7 @@
-import EntityManagerPK.EntityManagerClass;
-import Objects.City;
-import Objects.Continent;
-import Objects.Country;
+import EntytyManagerPK.EntityManagerClass;
+import Repository.City;
+import Repository.Continent;
+import Repository.Country;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

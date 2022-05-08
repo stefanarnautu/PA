@@ -1,6 +1,6 @@
-package Objects;
+package Repository;
 
-import EntityManagerPK.EntityManagerClass;
+import EntytyManagerPK.EntityManagerClass;
 import myClasses.CountriesEntity;
 
 import javax.persistence.EntityManager;
