@@ -1,1 +1,0 @@
-COPY Public."MyData" FROM 'D:\a.FACULTATE\PA\PA\LAB8\Homework\target\data\concap.csv' DELIMITER ',' CSV     
