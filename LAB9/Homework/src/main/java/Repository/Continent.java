@@ -2,6 +2,7 @@ package Repository;
 
 import EntytyManagerPK.EntityManagerClass;
 import myClasses.ContinentsEntity;
+import myClasses.CountriesEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -29,14 +30,11 @@ public class Continent {
         }
     }
 
-    public Integer findByName(String name){
-        int entityFouded = (int) entityManager
+    public ContinentsEntity findByName(String name){
+        return (ContinentsEntity) entityManager
                 .createNamedQuery("ContinentsEntity.findByName")
                 .setParameter("nameSearched",name)
-                .getResultStream()
-                .findFirst()
-                .get();
-        return entityFouded;
+                .getSingleResult();
     }
 
     public String findById(int id){
@@ -44,4 +42,15 @@ public class Continent {
             .setParameter("idSearch",id).getResultStream().findFirst().get();
         return entityFouded;
     }
+
+    public void addCountry(String nume, CountriesEntity country){
+        ContinentsEntity con = (ContinentsEntity) entityManager
+                .createNamedQuery("ContinentsEntity.findByName")
+                .setParameter("nameSearched",nume)
+                .getSingleResult();
+
+       // con.getTari().add(country);
+    }
+
+
 }

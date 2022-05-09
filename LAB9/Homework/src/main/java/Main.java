@@ -24,11 +24,15 @@ public class Main {
             continent.create("Australia");
             System.out.println("Id-ul continentului cu numele "+ continent.findById(1) +" este " + continent.findByName("Europe"));
 
-            country.create("Romania","RO",continent.findByName("Europe"));
-            System.out.println("Id-ul tarii cu numele "+ country.findById(1) +" este " + country.findByName("Romania"));
+            country.create("Romania","RO",1);
+            System.out.println("Id-ul tarii cu numele " + country.findById(1) +" este " + country.findByName("Romania"));
 
             city.create("Romania","Bucharest","44.43333333333333","26.1");
             System.out.println("Id-ul orasului cu numele "+ city.findById(175) +" este " + city.findByName("Bucharest"));
+
+            //continent.addCountry("Europe",country.returnCountry(1));
+            //System.out.println(continent.findByName("Europe"));
+            //System.out.println(continent.findByName("Europe").getTari().get(1));
 
         }finally {
             if(transaction.isActive()){

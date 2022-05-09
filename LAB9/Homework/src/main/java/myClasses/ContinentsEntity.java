@@ -1,13 +1,18 @@
 package myClasses;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @NamedQuery(name = "ContinentsEntity.getLastId", query = "SELECT e.id from ContinentsEntity e order by e.id DESC")
 @NamedQuery(name = "ContinentsEntity.verify", query = "SELECT count(e.id) from ContinentsEntity e where e.name=?1")
-@NamedQuery(name = "ContinentsEntity.findByName", query = "SELECT e.id from ContinentsEntity e where e.name=:nameSearched")
+@NamedQuery(name = "ContinentsEntity.findByName", query = "SELECT e from ContinentsEntity e where e.name=:nameSearched")
 @Table(name = "continents", schema = "public", catalog = "lab8pa")
 public class ContinentsEntity {
+
     @Id
     @Basic
     @Column(name = "id")
@@ -15,6 +20,11 @@ public class ContinentsEntity {
     @Basic
     @Column(name = "name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinTable(name = "countries",
+               joinColumns = {@JoinColumn(name = "id",referencedColumnName = "id")})
+    private List<CountriesEntity> tari = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -45,6 +55,14 @@ public class ContinentsEntity {
         return true;
     }
 
+    public void setTari(CountriesEntity tara) {
+        this.tari.add(tara);
+    }
+
+    public List<CountriesEntity> getTari() {
+        return tari;
+    }
+
     @Override
     public int hashCode() {
         int result = id;
@@ -57,6 +75,8 @@ public class ContinentsEntity {
         return "ContinentsEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+              //  ", tari=" + tari +
                 '}';
     }
+
 }

@@ -35,14 +35,13 @@ public class City {
         }
     }
 
-    public Integer findByName(String name){
-        int entityFouded = (int) entityManager
+    public CitiesEntity findByName(String name){
+        return (CitiesEntity) entityManager
                 .createNamedQuery("CitiesEntity.findByName")
                 .setParameter("nameSearched",name)
                 .getResultStream()
                 .findFirst()
                 .get();
-        return entityFouded;
     }
 
     public String findById(int id){

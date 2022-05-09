@@ -6,6 +6,7 @@ import javax.persistence.*;
 @NamedQuery(name = "CountriesEntity.getLastId", query = "SELECT e.id from CountriesEntity e order by e.id DESC")
 @NamedQuery(name = "CountriesEntity.verify", query = "SELECT count(e.id) from CountriesEntity e where e.name=?1")
 @NamedQuery(name = "CountriesEntity.findByName", query = "SELECT e.id from CountriesEntity e where e.name=:nameSearched")
+@NamedQuery(name = "CountriesEntity.findObjectByName", query = "SELECT e from CountriesEntity e where e.id=:idSearched")
 @Table(name = "countries", schema = "public", catalog = "lab8pa")
 public class CountriesEntity {
     @Basic
@@ -21,6 +22,10 @@ public class CountriesEntity {
     @Basic
     @Column(name = "id")
     private int id;
+
+    @OneToOne
+    @JoinColumn(name="id", nullable = false, insertable = false, updatable = false)
+    private ContinentsEntity conEnt;
 
     public String getName() {
         return name;
@@ -54,6 +59,14 @@ public class CountriesEntity {
         this.id = id;
     }
 
+    public ContinentsEntity getConEnt() {
+        return conEnt;
+    }
+
+    public void setConEnt(ContinentsEntity conEnt) {
+        this.conEnt = conEnt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,5 +89,21 @@ public class CountriesEntity {
         result = 31 * result + continent;
         result = 31 * result + id;
         return result;
+    }
+
+    @ManyToOne(optional = false)
+    private ContinentsEntity continentsEntities;
+
+    public ContinentsEntity getContinentsEntities() {
+        return continentsEntities;
+    }
+
+    public void setContinentsEntities(ContinentsEntity continentsEntities) {
+        this.continentsEntities = continentsEntities;
+    }
+
+    @Override
+    public String toString() {
+        return "A";
     }
 }

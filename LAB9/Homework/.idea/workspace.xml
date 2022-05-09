@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LAB8/Homework" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LAB8/Homework2" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
@@ -69,6 +69,8 @@
       <workItem from="1651998521238" duration="1437000" />
       <workItem from="1652005474913" duration="10635000" />
       <workItem from="1652023489194" duration="1821000" />
+      <workItem from="1652076318292" duration="6174000" />
+      <workItem from="1652082536193" duration="4784000" />
     </task>
     <servers />
   </component>
@@ -92,6 +94,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.hibernate.exception.SQLGrammarException" package="org.hibernate.exception" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

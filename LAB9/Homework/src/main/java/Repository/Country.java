@@ -1,10 +1,12 @@
 package Repository;
 
 import EntytyManagerPK.EntityManagerClass;
+import myClasses.ContinentsEntity;
 import myClasses.CountriesEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.criteria.CriteriaBuilder;
 
 public class Country {
     EntityManagerClass entityManagerClass = new EntityManagerClass();
@@ -34,18 +36,21 @@ public class Country {
     }
 
     public Integer findByName(String name){
-        int entityFouded = (int) entityManager
+        return (Integer) entityManager
                 .createNamedQuery("CountriesEntity.findByName")
-                .setParameter("nameSearched",name)
-                .getResultStream()
-                .findFirst()
-                .get();
-        return entityFouded;
+                .setParameter("nameSearched",name).getResultStream().findFirst().get();
     }
 
     public String findById(int id){
         String entityFouded = (String) entityManager.createNativeQuery("select c.name from countries c where id=:idSearch")
                 .setParameter("idSearch",id).getResultStream().findFirst().get();
         return entityFouded;
+    }
+    
+    public CountriesEntity returnCountry(Integer id){
+        return (CountriesEntity) entityManager
+                .createNamedQuery("CountriesEntity.findObjectByName")
+                .setParameter("idSearched",id)
+                .getSingleResult();
     }
 }
