@@ -33,9 +33,9 @@ public class Main {
             }
 
 
-            } catch (UnknownHostException e) {
-                System.err.println("No server listening... " + e);
-            }
+        } catch (UnknownHostException e) {
+            System.err.println("No server listening... " + e);
+        }
 
         PrintWriter outWhile = new PrintWriter(socket.getOutputStream(), true);
         outWhile.println("exit");

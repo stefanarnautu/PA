@@ -1,11 +1,10 @@
-import Server.ClientThread;
+import serverr.ClientThread;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
+import java.util.Date;
 
 public class Main {
-    // Define the port on which the server is listening
     public static final int PORT = 8100;
     public Main() throws IOException {
         ServerSocket serverSocket = null ;
@@ -14,16 +13,13 @@ public class Main {
             while (true) {
                 System.out.println ("Waiting for a client ...");
                 Socket socket = serverSocket.accept();
-                // Execute the client's request in a new thread
-                new ClientThread(socket).run();
+                new ClientThread(socket).start();
             }
         } catch (IOException e) {
-            System.err. println ("Ooops... " + e);
-        } finally {
-            serverSocket.close();
+            System.err.println ("Ooops... " + e);
         }
     }
     public static void main ( String [] args ) throws IOException {
-        Main server = new Main();
+        Main server=new Main();
     }
 }

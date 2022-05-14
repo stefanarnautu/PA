@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LAB10/Compulsory/Client" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
@@ -77,6 +77,11 @@
       <workItem from="1652096294093" duration="2471000" />
       <workItem from="1652105458120" duration="46000" />
       <workItem from="1652107792571" duration="672000" />
+      <workItem from="1652263940646" duration="58000" />
+      <workItem from="1652286803884" duration="1000" />
+      <workItem from="1652295476918" duration="3000" />
+      <workItem from="1652457833846" duration="22000" />
+      <workItem from="1652525457504" duration="29000" />
     </task>
     <servers />
   </component>

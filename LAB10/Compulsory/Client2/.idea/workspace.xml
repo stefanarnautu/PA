@@ -41,12 +41,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../WEB/Stefan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Client" />
+      <module name="Client2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -67,9 +67,8 @@
       <updated>1652105967530</updated>
       <workItem from="1652105968638" duration="1115000" />
       <workItem from="1652457865341" duration="9149000" />
-      <workItem from="1652525139377" duration="5705000" />
-      <workItem from="1652532328026" duration="12000" />
-      <workItem from="1652538135798" duration="19000" />
+      <workItem from="1652525139377" duration="415000" />
+      <workItem from="1652525626562" duration="3811000" />
     </task>
     <servers />
   </component>
