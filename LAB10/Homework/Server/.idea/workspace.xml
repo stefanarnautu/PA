@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3247c808-89c3-460f-905a-ff12761ffdee" name="Changes" comment="" />
+    <list default="true" id="1bba4126-1823-4b14-86ab-65255999ee7b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,18 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="28vnXFbeNcmG11YRDM5GoufZOpQ" />
+  <component name="ProjectId" id="28vmb9pHMY9590FrvwdjQuQUGtt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,12 +33,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Homework/Server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Server" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Client" />
+      <module name="Server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -60,19 +57,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3247c808-89c3-460f-905a-ff12761ffdee" name="Changes" comment="" />
-      <created>1652105967530</created>
+      <changelist id="1bba4126-1823-4b14-86ab-65255999ee7b" name="Changes" comment="" />
+      <created>1652105505564</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1652105967530</updated>
-      <workItem from="1652105968638" duration="1115000" />
-      <workItem from="1652457865341" duration="9149000" />
-      <workItem from="1652525139377" duration="5705000" />
-      <workItem from="1652532328026" duration="12000" />
-      <workItem from="1652538135798" duration="19000" />
-      <workItem from="1652596545215" duration="1161000" />
-      <workItem from="1652597735102" duration="26000" />
-      <workItem from="1652598031221" duration="23000" />
+      <updated>1652105505564</updated>
+      <workItem from="1652105506729" duration="2250000" />
+      <workItem from="1652457858246" duration="9780000" />
+      <workItem from="1652525054117" duration="5803000" />
+      <workItem from="1652596538835" duration="1166000" />
+      <workItem from="1652598056305" duration="11874000" />
+      <workItem from="1652631791557" duration="8900000" />
     </task>
     <servers />
   </component>
