@@ -20,25 +20,20 @@ public class Main {
                 out.println(command);
                 String response = in.readLine();
                 System.out.println(response);
-                if(command.equals("exit")){
-                    System.out.println("Client stopped");
-                    System.exit(0);
-                }
                 if(command.equals("stop")){
-                    System.out.println("Server Stopped");
                     out.println(command);
+                    System.out.println("Clientul a fost oprit deoarece serverul a fost inchis.");
                     System.exit(0);
                 }
                 System.out.println("Introduceti o comanda: ");
             }
 
-
+            if(command.equals("exit")){
+                System.out.println("Clientul a fost oprit.");
+                System.exit(0);
+            }
         } catch (UnknownHostException e) {
             System.err.println("No server listening... " + e);
         }
-
-        PrintWriter outWhile = new PrintWriter(socket.getOutputStream(), true);
-        outWhile.println("exit");
-        System.out.println("Client stopped.");
     }
 }

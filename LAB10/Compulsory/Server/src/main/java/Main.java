@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Main {
     public static final int PORT = 8100;
-    public Main() throws IOException {
+    public Main(){
         ServerSocket serverSocket = null ;
         try {
             serverSocket = new ServerSocket(PORT);
