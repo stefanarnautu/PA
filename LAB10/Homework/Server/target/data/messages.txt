@@ -4,3 +4,5 @@ maria: Salutare
 maria: aici voiam sa ajung 
 george: Fac si eu ce pot 
 maria: okok 
+ana: ce faci Stefan? 
+stefan: si eu bine 

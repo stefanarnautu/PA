@@ -6,19 +6,51 @@ import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ClientThread extends Thread {
     private Socket socket;
     private Client client;
+    private int timerMessage = 0;
     public ClientThread (Socket socket) {
         this.socket = socket ;
         this.client = new Client();
     }
     public void run () {
+
+        TimerTask timerTask = new TimerTask() {
+            private int perioade;
+            private int timerMessageAnterior = -1;
+            @Override
+            public void run() {
+                if(timerMessage != timerMessageAnterior){
+                    timerMessageAnterior=timerMessage;
+                    perioade = 0;
+                }
+                else {
+                    perioade++;
+                    System.out.println(client.getName()+" nu a trimis de " + perioade*15 +" secunde.");
+                }
+
+                if(perioade == 4){
+                    try {
+                        socket.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        };
+
+        Timer timer = new Timer();
+
         try {
             boolean existent;
-            PrintWriter out = new PrintWriter(socket.getOutputStream());
 
+            PrintWriter out = new PrintWriter(socket.getOutputStream());
             while (true) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String allCommand[] = in.readLine().split(" ");
@@ -26,40 +58,40 @@ public class ClientThread extends Thread {
                 String response;
                 existent = false;
                 if(command.equals("register")){
-                        if(allCommand.length>1) {
-                            FileReader f = new FileReader("target/data/accounts.txt");
-                            BufferedReader reader = new BufferedReader(f);
-                            String accountName;
-                            while((accountName = reader.readLine())!=null){
-                                if(accountName.toLowerCase(Locale.ROOT).equals(allCommand[1].toLowerCase(Locale.ROOT))){
-                                    response = "Nume existent.";
-                                    out.println(response);
-                                    out.flush();
-                                    existent = true;
-                                }
-                            }
-                            f.close();
-                            reader.close();
-
-                            if(!existent) {
-                                BufferedWriter writer = new BufferedWriter(new FileWriter("target/data/accounts.txt", true));
-                                writer.append('\n');
-                                writer.append(allCommand[1].toLowerCase(Locale.ROOT));
-                                writer.close();
-
-                                response = "CONECTARE CU SUCCES";
+                    if(allCommand.length>1) {
+                        FileReader f = new FileReader("target/data/accounts.txt");
+                        BufferedReader reader = new BufferedReader(f);
+                        String accountName;
+                        while((accountName = reader.readLine())!=null){
+                            if(accountName.toLowerCase(Locale.ROOT).equals(allCommand[1].toLowerCase(Locale.ROOT))){
+                                response = "Nume existent.";
                                 out.println(response);
                                 out.flush();
-                                this.client.setName(allCommand[1].toLowerCase(Locale.ROOT));
-                                break;
+                                existent = true;
                             }
-                        }else {
-                            response = "Comanda incompleta. Trebuie pus numele.";
+                        }
+                        f.close();
+                        reader.close();
+
+                        if(!existent) {
+                            BufferedWriter writer = new BufferedWriter(new FileWriter("target/data/accounts.txt", true));
+                            writer.append('\n');
+                            writer.append(allCommand[1].toLowerCase(Locale.ROOT));
+                            writer.close();
+
+                            response = "CONECTARE CU SUCCES";
                             out.println(response);
                             out.flush();
+                            this.client.setName(allCommand[1].toLowerCase(Locale.ROOT));
+                            break;
                         }
-                    }else
-                    if(command.equals("login")){
+                    }else {
+                        response = "Comanda incompleta. Trebuie pus numele.";
+                        out.println(response);
+                        out.flush();
+                    }
+                }else
+                if(command.equals("login")){
                         if(allCommand.length>1) {
                             FileReader f = new FileReader("target/data/accounts.txt");
                             BufferedReader reader = new BufferedReader(f);
@@ -108,14 +140,18 @@ public class ClientThread extends Thread {
                     }
             }
 
-            System.out.println("CONECTAT");
             currentThread().setName(this.client.getName());
+            System.out.println(currentThread().getName().toUpperCase(Locale.ROOT) +" S-A CONECTAT");
+
+            timer.scheduleAtFixedRate(timerTask, 0, 15*1000);
 
             while (true) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String allCommand[] = in.readLine().split(" ");
                 String command = allCommand[0].toLowerCase(Locale.ROOT);
                 System.out.println("Serverul a primit comada: "+ command);
+                timerMessage++;
+
                 String response;
                 if(command.equals("stop")) {
                     response= "A fost inchis serverul prin comanda stop.";
@@ -164,7 +200,8 @@ public class ClientThread extends Thread {
                    } else {
                        response = "Prea multi sau nici un prieten trimis.";
                    }
-                }else if(command.equals("friends")) {
+                }else
+                if(command.equals("friends")) {
                     response = this.client.getPrieteni().toString();
                 }else
                 if(command.equals("send")){
@@ -201,8 +238,11 @@ public class ClientThread extends Thread {
                 out.println(response);
                 out.flush();
             }
+
         } catch (SocketException e){
-            System.out.println("Client " + currentThread().getName() + " s-a deconectat.");
+            System.out.println("Client " + currentThread().getName().toUpperCase(Locale.ROOT) + " s-a deconectat.");
+            timerTask.cancel();
+            timer.cancel();
         } catch (IOException e) {
             System.err.println("Communication error... " + e);
         }

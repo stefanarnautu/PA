@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class Main {
@@ -40,6 +41,9 @@ public class Main {
             }
             } catch (UnknownHostException e) {
                 System.err.println("No server listening... " + e);
-            }
+            } catch (SocketException e){
+            System.out.println("Serverul sau conexiunea a fost oprita.\n" + e);
+            System.exit(0);
+        }
     }
 }

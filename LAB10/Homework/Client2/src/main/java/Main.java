@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class Main {
@@ -19,7 +20,13 @@ public class Main {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 out.println(command);
                 String response = in.readLine();
-                System.out.println(response);
+
+                if(command.equals("read")){
+                    for(String s : response.split("--")){
+                        System.out.println(s);
+                    }
+                }
+                else System.out.println(response);
                 if(command.equals("stop")){
                     out.println(command);
                     System.out.println("Clientul a fost oprit deoarece serverul a fost inchis.");
@@ -34,6 +41,9 @@ public class Main {
             }
         } catch (UnknownHostException e) {
             System.err.println("No server listening... " + e);
+        } catch (SocketException e){
+            System.out.println("Serverul sau conexiunea a fost oprita.\n" + e);
+            System.exit(0);
         }
     }
 }
