@@ -41,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../IP/Final/Bancescu/JWT" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -71,7 +71,8 @@
       <workItem from="1652525626562" duration="3811000" />
       <workItem from="1652596555689" duration="803000" />
       <workItem from="1652639336604" duration="59000" />
-      <workItem from="1652709219358" duration="1483000" />
+      <workItem from="1652709219358" duration="1485000" />
+      <workItem from="1652773255366" duration="43000" />
     </task>
     <servers />
   </component>

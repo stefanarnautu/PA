@@ -218,20 +218,20 @@ public class ClientThread extends Thread {
                         response = "Mesaj trimis.";
                     }else response = "Nu ai pus mesajul.";
                 }else
-                if(command.equals("read")){
-                    FileReader f = new FileReader("target/data/messages.txt");
-                    BufferedReader reader = new BufferedReader(f);
-                    String message;
-                    String splittedMesage[];
-                    response = "";
-                    while((message = reader.readLine())!=null){
-                       splittedMesage = message.split(": ");
-                       if(this.client.getPrieteni().contains(splittedMesage[0])){
-                           response += splittedMesage[0] + ": " + splittedMesage[1] + "--";
-                       }
-                    }
-                    f.close();
-                    reader.close();
+                    if(command.equals("read")){
+                        FileReader f = new FileReader("target/data/messages.txt");
+                        BufferedReader reader = new BufferedReader(f);
+                        String message;
+                        String splittedMesage[];
+                        response = "";
+                        while((message = reader.readLine())!=null){
+                           splittedMesage = message.split(": ");
+                           if(this.client.getPrieteni().contains(splittedMesage[0])){
+                               response += splittedMesage[0] + ": " + splittedMesage[1] + "--";
+                           }
+                        }
+                        f.close();
+                        reader.close();
                 }else {
                     response = "Comanda " + command + " este necunoscuta.";
                 }
