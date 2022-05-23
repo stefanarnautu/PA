@@ -16,34 +16,56 @@ public class PopulateDatabase {
 
         try{
           reader = new BufferedReader(new FileReader(file));
-
           int a=0;
           transaction.begin();
-
           AlldataEntity newEntity = new AlldataEntity();
-
           line = reader.readLine();//citesc headeru-ul
-
+          int cont;
           while((line = reader.readLine()) != null){
               String[] row = line.split(",");
-
-              newEntity.setId(Integer.parseInt(row[0]));
-              newEntity.setName(row[1]);
-              newEntity.setStateId(Integer.parseInt(row[2]));
-              newEntity.setStateCode(row[3]);
-              newEntity.setStateName(row[4]);
-              newEntity.setCountryId(Integer.parseInt(row[5]));
-              newEntity.setCountryCode(row[6]);
-              newEntity.setCountryName(row[7]);
-              newEntity.setLatitude(row[8]);
-              newEntity.setLongitude(row[9]);
-              newEntity.setWikidataid(row[10]);
-
+              cont=0;
+              newEntity.setId(Integer.parseInt(row[cont]));
+              cont++;
+              if(row[cont].startsWith("\"") && !row[cont].endsWith("\"")){
+                  newEntity.setName(row[cont] + row[cont+1]);
+                  cont+=2;
+              }else{
+                  newEntity.setName(row[cont]);
+                  cont++;
+              }
+              newEntity.setStateId(Integer.parseInt(row[cont]));
+              cont++;
+              newEntity.setStateCode(row[cont]);
+              cont++;
+              if(row[cont].startsWith("\"") && !row[cont].endsWith("\"")){
+                  newEntity.setStateName(row[cont] + row[cont+1]);
+                  cont+=2;
+              }else{
+                  newEntity.setStateName(row[cont]);
+                  cont++;
+              }
+              newEntity.setCountryId(Integer.parseInt(row[cont]));
+              cont++;
+              newEntity.setCountryCode(row[cont]);
+              cont++;
+              if(row[cont].startsWith("\"") && !row[cont].endsWith("\"")){
+                  newEntity.setCountryName(row[cont] + row[cont+1]);
+                  cont+=2;
+              }else{
+                  newEntity.setCountryName(row[cont]);
+                  cont++;
+              }
+              newEntity.setLatitude(row[cont]);
+              cont++;
+              newEntity.setLongitude(row[cont]);
+              cont++;
+              if(row.length>cont)
+              newEntity.setWikidataid(row[cont]);
+              else newEntity.setWikidataid("none");
               entityManager.merge(newEntity);
               System.out.println(a);
               a++;
           }
-
           transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

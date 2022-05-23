@@ -1,4 +1,5 @@
 import db.PopulateDatabase;
+import entities.AlldataEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +12,8 @@ public class Main {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
+        //Apelat doar la popularea bazei de date
         //p.populateTheDatabaseFromCsv(entityManager,transaction);
+
     }
 }
