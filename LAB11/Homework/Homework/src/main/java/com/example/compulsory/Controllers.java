@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class controllers {
+@RequestMapping("/people")
+public class Controllers {
 
     List<AccountsEntity> accounts = new ArrayList<>();
 
@@ -26,19 +27,17 @@ public class controllers {
         return "Greetings from Spring Boot!";
     }
 
-    @GetMapping("/people")
-    public List getProducts() {
+    @GetMapping("/all")
+    public List getPersons() {
         accounts.addAll(entityManager.createQuery(
                         "SELECT c FROM AccountsEntity c")
                 .getResultList());
-        System.out.println(accounts.toString());
         return entityManager.createQuery(
                           "SELECT c FROM AccountsEntity c")
                             .getResultList();
     }
     @PostMapping("/login")
-    public ResponseEntity<String> createProduct(@RequestParam String name) {
-
+    public ResponseEntity<String> createPerson(@RequestParam String name) {
         int id = 1 + Integer.parseInt(entityManager.createQuery(
                 "SELECT count(*) FROM AccountsEntity").getSingleResult().toString());
         transaction.begin();
@@ -52,7 +51,7 @@ public class controllers {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestParam String name) {
+    public ResponseEntity<String> updatePerson(@PathVariable int id, @RequestParam String name) {
         transaction.begin();
         entityManager.createQuery(
                         "UPDATE AccountsEntity \n" +
@@ -80,7 +79,7 @@ public class controllers {
         return new ResponseEntity<>("Account removed", HttpStatus.OK);
     }
 
-    @GetMapping("/people/count")
+    @GetMapping("/count")
     public int countProducts() {
         return accounts.size();
     }

@@ -15,6 +15,7 @@ public class CompulsoryApplication {
     public static void main(String[] args) {
         EntityManagerClass entityManagerClass = new EntityManagerClass();
         SpringApplication.run(CompulsoryApplication.class, args);
+
     }
 
 }
