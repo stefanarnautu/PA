@@ -6,6 +6,9 @@
     <persistence-unit name="default">
 
         <class>entities.AlldataEntity</class>
+        <class>entities.CitiesEntity</class>
+        <class>entities.CountriesEntity</class>
+        <class>entities.StatesEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/ProiectPA"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

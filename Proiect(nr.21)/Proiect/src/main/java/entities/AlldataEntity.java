@@ -3,6 +3,7 @@ package entities;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "AlldataEntity.findAll", query = "SELECT p FROM AlldataEntity p")
 @Table(name = "alldata", schema = "public", catalog = "ProiectPA")
 public class AlldataEntity {
     @Id
@@ -164,5 +165,22 @@ public class AlldataEntity {
         result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
         result = 31 * result + (wikidataid != null ? wikidataid.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AlldataEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", stateId=" + stateId +
+                ", stateCode='" + stateCode + '\'' +
+                ", stateName='" + stateName + '\'' +
+                ", countryId=" + countryId +
+                ", countryCode='" + countryCode + '\'' +
+                ", countryName='" + countryName + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", wikidataid='" + wikidataid + '\'' +
+                '}';
     }
 }

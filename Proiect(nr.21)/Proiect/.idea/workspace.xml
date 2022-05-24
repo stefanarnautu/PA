@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6590a806-f40d-48f3-8587-43cde4392c6e" name="Changes" comment="" />
+    <list default="true" id="835373bc-bdf4-4ee9-9390-f6242c74c0e3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,29 +26,30 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="29ZxObCQHNpn7YcPqC6AhPdXknr" />
+  <component name="ProjectId" id="29b7tfOhjTpX4PecWstCaKrPFIN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="JPA.DatabaseSchemaImportDialog" value="e287338f-e001-492f-96a3-e8834fd4504b" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="bd04594e-e1c9-4124-bb34-f3721a333b54" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../ExecutabilePrograme/xampp/htdocs/product-page" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="entities" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="demo" />
+      <module name="Proiect" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -62,17 +63,30 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6590a806-f40d-48f3-8587-43cde4392c6e" name="Changes" comment="" />
-      <created>1653334381053</created>
+      <changelist id="835373bc-bdf4-4ee9-9390-f6242c74c0e3" name="Changes" comment="" />
+      <created>1653370149112</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1653334381053</updated>
-      <workItem from="1653334383283" duration="759000" />
-      <workItem from="1653335199305" duration="5152000" />
+      <updated>1653370149112</updated>
+      <workItem from="1653370150361" duration="6490000" />
+      <workItem from="1653406363425" duration="597000" />
+      <workItem from="1653408304471" duration="52000" />
+      <workItem from="1653409994228" duration="706000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -14,6 +14,6 @@ public class Main {
         EntityTransaction transaction = entityManager.getTransaction();
         //Apelat doar la popularea bazei de date
         //p.populateTheDatabaseFromCsv(entityManager,transaction);
-
+        p.populateTables(entityManager,transaction);
     }
 }
