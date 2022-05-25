@@ -9,13 +9,15 @@ import java.util.Objects;
 
 @Table(name = "accounts", schema = "public", catalog = "lab11pa")
 public class AccountsEntity {
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
     @Basic
     @Column(name = "name")
     private String name;
+    @Basic
+    @Column(name = "entries")
+    private Integer entries;
 
     public int getId() {
         return id;
@@ -52,5 +54,13 @@ public class AccountsEntity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public Integer getEntries() {
+        return entries;
+    }
+
+    public void setEntries(Integer entries) {
+        this.entries = entries;
     }
 }
