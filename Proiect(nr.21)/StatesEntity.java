@@ -1,21 +1,18 @@
 package entities;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 
 @Entity
 @Table(name = "states", schema = "public", catalog = "ProiectPA")
 @NamedQueries({
         @NamedQuery(name = "StatesEntity.findById", query = "select s from StatesEntity s where s.stateId=:stateId"),
-        @NamedQuery(name = "StatesEntity.findByCountryId", query = "select s from StatesEntity s where s.countryId = :countryId and s.stateName  like concat('%',:stateName,'%')") ,
-        @NamedQuery(name = "StatesEntity.findByName", query = "select c from StatesEntity c where c.stateName like concat('%',:stateName,'%')")
+        @NamedQuery(name = "StatesEntity.findByCountryId", query = "select s from StatesEntity s where s.countryId = :countryId and s.stateName=:stateName"),
 })
 public class StatesEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Basic
     @Column(name = "state_id")
-    private Integer stateId;
+    private int stateId;
     @Basic
     @Column(name = "country_id")
     private Integer countryId;
@@ -28,10 +25,6 @@ public class StatesEntity {
 
     public int getStateId() {
         return stateId;
-    }
-
-    public void setStateId(Integer stateId) {
-        this.stateId = stateId;
     }
 
     public void setStateId(int stateId) {

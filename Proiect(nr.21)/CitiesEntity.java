@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "CitiesEntity.findByStateId", query = "select s from CitiesEntity s where s.stateId = :stateId"),
-        @NamedQuery(name = "CitiesEntity.findByName", query = "select s from CitiesEntity s where s.name like concat('%',:name,'%')"),
+        @NamedQuery(name = "CitiesEntity.findByName", query = "select s from CitiesEntity s where s.name = :name"),
         @NamedQuery(name = "CitiesEntity.verify", query = "SELECT count(e.id) from CitiesEntity e where e.name=?1"),
         @NamedQuery(name = "CitiesEntity.findAll", query = "SELECT p FROM CitiesEntity p")
 })
@@ -13,7 +13,6 @@ import javax.persistence.*;
 
 @Table(name = "cities", schema = "public", catalog = "ProiectPA")
 public class CitiesEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Basic
     @Column(name = "id")
@@ -27,10 +26,6 @@ public class CitiesEntity {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setId(int id) {

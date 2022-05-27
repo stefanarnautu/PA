@@ -1,15 +1,11 @@
 package classes;
 
-import entities.AlldataEntity;
 import entities.CitiesEntity;
 import entities.CountriesEntity;
 import entities.StatesEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 public class AddressCorrector {
@@ -17,81 +13,110 @@ public class AddressCorrector {
     private String state;
     private String country;
     EntityManager entityManager;
-    int stateId;
-    int countryId;
+    private int stateId;
+    private int countryId;
 
     public AddressCorrector(String city, String state, String country, EntityManager entityManager) {
         this.city = city;
         this.state = state;
         this.country = country;
         this.entityManager=entityManager;
+        this.countryId = 0;
+        this.stateId = 0;
     }
-    public boolean VerifyCity()
+
+    public boolean verifyCity()
     {
-        boolean found = false;
-        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findAll", CitiesEntity.class);
+        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findByStateId", CitiesEntity.class).setParameter("stateId",this.stateId);
         List<CitiesEntity> results = query.getResultList();
-        //Object exists;
         for(CitiesEntity inst : results){
             if(this.city.equals(inst.getName()))
             {
-                found=true;
-                stateId=inst.getStateId();
+                return true;
             }
         }
-        return found;
+        return false;
     }
-    public boolean VerifyState()
-    {
-        boolean found = false;
-        TypedQuery<StatesEntity> query = this.entityManager.createNamedQuery("StatesEntity.findByStateId", StatesEntity.class).setParameter("stateId", stateId);
-        List<StatesEntity> results = query.getResultList();
-        //Object exists;
-        for(StatesEntity inst : results){
-            if(this.state.equals(inst.getStateName()))
-            {
-                found=true;
-                countryId=inst.getCountryId();
-                //return;
-            }
-        }
-        if(found==false)
-        {
-            for(StatesEntity inst : results){
-                if(this.stateId==inst.getStateId())
-                {
-                    this.state=inst.getStateName();
-                    countryId=inst.getCountryId();
-                    //return;
-                }
-        }
-    }
-        return found;
-    }
-    public boolean VerifyCountry()
-    {
-        boolean found = false;
-        TypedQuery<CountriesEntity> query = this.entityManager.createNamedQuery("CountriesEntity.findByCountryId", CountriesEntity.class).setParameter("countryId", countryId);
-        List<CountriesEntity> results = query.getResultList();
-        //Object exists;
-        for(CountriesEntity inst : results){
-            if(this.country.equals(inst.getCountryName()))
-            {
-                found=true;
-                //return;
-            }
-        }
-        if(found==false) {
-            for (CountriesEntity inst : results) {
-                if (this.countryId == inst.getCountryId()) {
-                    this.country = inst.getCountryName();
-                    //return;
-                }
-            }
-        }
 
-        return found;
+    public boolean verifyCityByName()
+    {
+        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findByName", CitiesEntity.class).setParameter("name",this.city);
+        List<CitiesEntity> results = query.getResultList();
+        for(CitiesEntity inst : results){
+            if(inst.getName().contains(this.city))
+            {
+                this.stateId= inst.getStateId();
+                return true;
+            }
+        }
+        return false;
     }
+
+    public boolean verifyState()
+    {
+        TypedQuery<StatesEntity> query = this.entityManager
+                .createNamedQuery("StatesEntity.findByCountryId", StatesEntity.class)
+                .setParameter("countryId", this.countryId)
+                .setParameter("stateName",this.state);
+        List<StatesEntity> results = query.getResultList();
+        for(StatesEntity inst : results){
+
+            if(inst.getStateName().contains(this.state))
+            {
+                this.stateId = inst.getStateId();
+                countryId=inst.getCountryId();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verifyStateByName()
+    {
+        TypedQuery<StatesEntity> query = this.entityManager.createNamedQuery("StatesEntity.findByName", StatesEntity.class).setParameter("stateName",this.state);
+        List<StatesEntity> results = query.getResultList();
+        for(StatesEntity inst : results){
+            if(inst.getStateName().contains(this.city))
+            {
+                this.countryId= inst.getCountryId();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setStateName()
+    {
+        TypedQuery<StatesEntity> query = this.entityManager
+                .createNamedQuery("StatesEntity.findById", StatesEntity.class)
+                .setParameter("stateId", this.stateId);
+        List<StatesEntity> results = query.getResultList();
+        this.state = results.get(0).getStateName();
+        this.countryId = results.get(0).getCountryId();
+    }
+
+    public boolean verifyCountry()
+    {
+        TypedQuery<CountriesEntity> query = this.entityManager.createNamedQuery("CountriesEntity.findByCountryName", CountriesEntity.class).setParameter("countryName", country);
+        List<CountriesEntity> results = query.getResultList();
+        for(CountriesEntity inst : results){
+            if(inst.getCountryName().contains(this.country))
+            {
+                this.countryId = inst.getCountryId();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setCountryName() {
+        TypedQuery<CountriesEntity> query = this.entityManager
+                .createNamedQuery("CountriesEntity.findById", CountriesEntity.class)
+                .setParameter("countryId", this.countryId);
+        List<CountriesEntity> results = query.getResultList();
+        this.country = results.get(0).getCountryName();
+    }
+
 
     public String getCity() {
         return city;
@@ -115,5 +140,13 @@ public class AddressCorrector {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public int getStateId() {
+        return stateId;
+    }
+
+    public int getCountryId() {
+        return countryId;
     }
 }

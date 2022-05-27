@@ -110,8 +110,6 @@ public class PopulateDatabase {
     }
 
     /*
-    //exists = entityManager.createNamedQuery("StatesEntity.verify").setParameter(1,inst.getStateName()).getSingleResult();
-    //exists = entityManager.createNamedQuery("CountriesEntity.verify").setParameter(1,inst.getCountryName()).getSingleResult();
     //exists = entityManager.createNamedQuery("CitiesEntity.verify").setParameter(1,inst.getName()).getSingleResult();
             if(!(Integer.parseInt(String.valueOf(exists)) >0)){
                 newCity.setId(inst.getId());
