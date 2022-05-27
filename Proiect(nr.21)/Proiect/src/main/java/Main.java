@@ -1,5 +1,7 @@
+import classes.AddressCorrector;
 import db.PopulateDatabase;
 import entities.AlldataEntity;
+import panel.MainFrame;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,6 +16,7 @@ public class Main {
         EntityTransaction transaction = entityManager.getTransaction();
         //Apelat doar la popularea bazei de date
         //p.populateTheDatabaseFromCsv(entityManager,transaction);
-        p.populateTables(entityManager,transaction);
+        //p.populateTables(entityManager,transaction);
+        new MainFrame().setVisible(true);
     }
 }
