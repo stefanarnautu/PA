@@ -5,11 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "countries", schema = "public", catalog = "ProiectPA")
 @NamedQueries({
-        @NamedQuery(name = "CountriesEntity.findById", query = "select s from CountriesEntity s where s.countryId=:countryId"),
-        @NamedQuery(name = "CountriesEntity.findByCountryName", query = "select c from CountriesEntity c where c.countryName like concat('%',:countryName,'%')")
+        @NamedQuery(name = "CountriesEntity.findByCountryId", query = "select c from CountriesEntity c where c.countryId = :countryId")
 })
 public class CountriesEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Basic
     @Column(name = "country_id")
@@ -23,10 +21,6 @@ public class CountriesEntity {
 
     public int getCountryId() {
         return countryId;
-    }
-
-    public void setCountryId(Integer countryId) {
-        this.countryId = countryId;
     }
 
     public void setCountryId(int countryId) {

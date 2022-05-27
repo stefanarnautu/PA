@@ -24,7 +24,8 @@ public class DrawingPanel extends JPanel {
     }
 
     private void createOffscreenImage() {
-        image = new BufferedImage(canvasWidth, canvasHeight, BufferedImage.TYPE_INT_ARGB);
+        image = new BufferedImage(
+                canvasWidth, canvasHeight, BufferedImage.TYPE_INT_ARGB);
         offscreen = image.createGraphics();
         offscreen.setColor(Color.WHITE); //fill the image with white
         offscreen.fillRect(0, 0, canvasWidth, canvasHeight);
