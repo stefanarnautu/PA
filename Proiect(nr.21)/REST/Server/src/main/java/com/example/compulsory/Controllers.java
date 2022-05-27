@@ -1,133 +1,60 @@
 package com.example.compulsory;
-
-import EntityManagerPK.EntityManagerClass;
-import data.AccountsEntity;
-import data.MessagesEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import classes.AddressCorrector;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import java.util.ArrayList;
+import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
-@RequestMapping("/people")
+@RequestMapping("/addresses")
 public class Controllers {
+    AddressCorrector address;
 
-    List<AccountsEntity> accounts = new ArrayList<>();
-
-    EntityManagerClass entityManagerClass = new EntityManagerClass();
-    EntityManager entityManager = entityManagerClass.getEntityManager();
-    EntityTransaction transaction = entityManagerClass.getTransaction();
-
-    @RequestMapping("/hello")
-    public String sayHello() {
-        return "Greetings from Spring Boot!";
-    }
-
-    @GetMapping("/all")
-    public List<AccountsEntity> getPersons() {
-        accounts.addAll(entityManager.createQuery(
-                        "SELECT c FROM AccountsEntity c")
-                .getResultList());
-        return entityManager.createQuery(
-                          "SELECT c FROM AccountsEntity c")
-                            .getResultList();
-    }
-    @PostMapping("/register")
-    public ResponseEntity<String> createPerson(@RequestParam String name) {
-        int id = 1 + Integer.parseInt(entityManager.createQuery(
-                "SELECT count(*) FROM AccountsEntity").getSingleResult().toString());
-        transaction.begin();
-        AccountsEntity newAccount = new AccountsEntity();
-        newAccount.setId(id);
-        newAccount.setName(name);
-        newAccount.setEntries(1);
-        entityManager.merge(newAccount);
-        transaction.commit();
-        return new ResponseEntity<>(
-                "Updated successsfully", HttpStatus.OK);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updatePerson(@PathVariable int id, @RequestParam String name) {
-        transaction.begin();
-        entityManager.createQuery(
-                        "UPDATE AccountsEntity \n" +
-                                "    SET name = :name\n" +
-                                "    WHERE id = :id").setParameter("name",name).setParameter("id",id).executeUpdate();
-
-        transaction.commit();
-
-        return new ResponseEntity<>(
-                "Updated successsfully", HttpStatus.OK);
-    }
-
-    @PutMapping("/increment")
-    public ResponseEntity<String> updatePersonEntry(@RequestParam String name) {
-        transaction.begin();
-        int lastNumberOfEntry = (int) entityManager.createQuery("select entries from AccountsEntity where name=:name")
-                                             .setParameter("name",name).getSingleResult() + 1;
-        entityManager.createQuery(
-                "UPDATE AccountsEntity \n" +
-                        "    SET entries = :entry\n" +
-                        "    WHERE name = :name")
-                     .setParameter("entry",lastNumberOfEntry)
-                     .setParameter("name",name)
-                     .executeUpdate();
-        transaction.commit();
-
-        return new ResponseEntity<>(
-                name + " has logged in  " + lastNumberOfEntry + " times.", HttpStatus.OK);
-    }
-
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable int id) {
-        AccountsEntity account = (AccountsEntity) entityManager.createQuery("select c from AccountsEntity c where id=:id").setParameter("id",id).getSingleResult();
-        if (account == null) {
-            return new ResponseEntity<>(
-                    "Account not found", HttpStatus.GONE);
+    @PostMapping("/verify")
+    public String create(@RequestParam String country, @RequestParam String state, @RequestParam String city) {
+        String tara,stat,oras;
+        String response="";
+        boolean next = true;
+        if (city.length()==0 || state.length()==0 || country.length()==0) {
+            response = "This is an empty field!";
+            next = false;
         }
-        transaction.begin();
-        entityManager.remove(account);
-        transaction.commit();
-        return new ResponseEntity<>("Account removed", HttpStatus.OK);
-    }
+        if (next) {
+            oras = city.substring(0, 1).toUpperCase() + city.substring(1).toLowerCase(Locale.ROOT);
+            stat = state.substring(0, 1).toUpperCase() + state.substring(1).toLowerCase(Locale.ROOT);
+            tara = country.substring(0, 1).toUpperCase() + country.substring(1).toLowerCase(Locale.ROOT);
+            this.address = new AddressCorrector(tara,stat,oras);
+            System.out.println(this.address);
+            if (!this.address.verifyCountry()) {
+                if(!this.address.verifyStateByName()){
+                    if(!this.address.verifyCityByName()){
+                       response = "Nothing from this address can be found in the database!";
 
-    @PostMapping("/messages/write")
-    public ResponseEntity<String> writeMessage(@RequestParam String name,@RequestParam String message) {
-        int id = 1 + Integer.parseInt(entityManager.createQuery(
-                "SELECT count(*) FROM MessagesEntity").getSingleResult().toString());
-        transaction.begin();
-        MessagesEntity newMessage = new MessagesEntity();
-        newMessage.setId(id);
-        newMessage.setName(name);
-        newMessage.setMessage(message);
-        entityManager.merge(newMessage);
-        transaction.commit();
-        return new ResponseEntity<>(
-                "Message wrote", HttpStatus.OK);
-    }
-    @GetMapping("/messages/get")
-    public List<MessagesEntity> getMessages() {
-        return entityManager.createQuery(
-                        "SELECT c FROM MessagesEntity c")
-                .getResultList();
-    }
+                    }else{
+                        this.address.setStateName();
+                        this.address.setCountryName();
+                        response = "City: " + this.address.getCity() + " State: " + this.address.getState() + " Country: " + this.address.getCountry();
+                    }
+                }else{
+                    this.address.setCountryName();
+                    response = "City: " + this.address.getCity() + " State: " + this.address.getState() + " Country: " + this.address.getCountry();
+                }
+            } else if (!this.address.verifyState()) {
+                if (!this.address.verifyCityByName()) {
+                    response = "The city and the state doesn't exist!";
+                } else {
+                    this.address.setStateName();
+                    response = "City: " + this.address.getCity() + " State: " + this.address.getState() + " Country: " + this.address.getCountry();
+                }
 
-    @GetMapping("/top")
-    public List<AccountsEntity> getTop(@RequestParam int index) {
-        return entityManager.createQuery(
-                        "SELECT c FROM AccountsEntity c order by entries desc")
-                .getResultList().subList(0,index>5 ? 5 : index);
-    }
-
-
-    @GetMapping("/count")
-    public int countProducts() {
-        return accounts.size();
+            } else if (!this.address.verifyCity()) {
+                response = "City doesn't exist!";
+            } else {
+                response = "Address is correct " + this.address.getCity() + " " + this.address.getState() + " " + this.address.getCountry();
+            }
+        }
+        return response;
     }
 
 }

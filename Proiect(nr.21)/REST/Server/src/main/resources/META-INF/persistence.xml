@@ -7,11 +7,17 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>data.AccountsEntity</class>
         <class>data.MessagesEntity</class>
+        <class>data.CitiesEntity</class>
+        <class>data.CountriesEntity</class>
+        <class>data.StatesEntity</class>
+        <class>entities.CitiesEntity</class>
+        <class>entities.CountriesEntity</class>
+        <class>entities.StatesEntity</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/lab11pa"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-52-48-159-67.eu-west-1.compute.amazonaws.com:5432/d4kt7idb1gv9b8"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="postgres"/>
-            <property name="hibernate.connection.password" value="Stefan123"/>
+            <property name="hibernate.connection.username" value="ptqqnqxrpbkkjg"/>
+            <property name="hibernate.connection.password" value="a9e48d92c0a3ad9befb0bc83c51058729341b80a8f465fda90e63a56c927f8b9"/>
             <property name="hibernate.show_sql" value="false"/>
         </properties>
     </persistence-unit>

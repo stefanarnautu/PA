@@ -1,18 +1,21 @@
-package entities;
+package data;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Entity
-@Table(name = "states", schema = "public", catalog = "ProiectPA")
+@Table(name = "states", schema = "public", catalog = "d4kt7idb1gv9b8")
 @NamedQueries({
         @NamedQuery(name = "StatesEntity.findById", query = "select s from StatesEntity s where s.stateId=:stateId"),
-        @NamedQuery(name = "StatesEntity.findByCountryId", query = "select s from StatesEntity s where s.countryId = :countryId and s.stateName=:stateName"),
+        @NamedQuery(name = "StatesEntity.findByCountryId", query = "select s from StatesEntity s where s.countryId = :countryId and s.stateName  like concat('%',:stateName,'%')") ,
+        @NamedQuery(name = "StatesEntity.findByName", query = "select c from StatesEntity c where c.stateName like concat('%',:stateName,'%')")
 })
 public class StatesEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Basic
     @Column(name = "state_id")
-    private int stateId;
+    private Integer stateId;
     @Basic
     @Column(name = "country_id")
     private Integer countryId;
@@ -27,6 +30,11 @@ public class StatesEntity {
         return stateId;
     }
 
+    public void setStateId(Integer stateId) {
+        this.stateId = stateId;
+    }
+
+
     public void setStateId(int stateId) {
         this.stateId = stateId;
     }
@@ -38,6 +46,7 @@ public class StatesEntity {
     public void setCountryId(Integer countryId) {
         this.countryId = countryId;
     }
+
 
     public String getStateCode() {
         return stateCode;

@@ -1,11 +1,10 @@
 package classes;
 
-import entities.CitiesEntity;
-import entities.CountriesEntity;
-import entities.StatesEntity;
+import data.CitiesEntity;
+import data.CountriesEntity;
+import data.StatesEntity;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class AddressCorrector {
@@ -16,10 +15,13 @@ public class AddressCorrector {
     private int stateId;
     private int countryId;
 
-    public AddressCorrector(String city, String state, String country, EntityManager entityManager) {
-        this.city = city;
-        this.state = state;
+    public AddressCorrector(String country, String state, String city) {
         this.country = country;
+        this.state = state;
+        this.city = city;
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         this.entityManager=entityManager;
         this.countryId = 0;
         this.stateId = 0;
@@ -45,6 +47,7 @@ public class AddressCorrector {
         for(CitiesEntity inst : results){
             if(inst.getName().contains(this.city))
             {
+                this.city = inst.getName();
                 this.stateId= inst.getStateId();
                 return true;
             }
@@ -63,8 +66,9 @@ public class AddressCorrector {
 
             if(inst.getStateName().contains(this.state))
             {
+                this.state = inst.getStateName();
                 this.stateId = inst.getStateId();
-                countryId=inst.getCountryId();
+                this.countryId=inst.getCountryId();
                 return true;
             }
         }
@@ -78,6 +82,8 @@ public class AddressCorrector {
         for(StatesEntity inst : results){
             if(inst.getStateName().contains(this.city))
             {
+                this.state = inst.getStateName();
+                this.stateId= inst.getStateId();
                 this.countryId= inst.getCountryId();
                 return true;
             }
@@ -102,6 +108,7 @@ public class AddressCorrector {
         for(CountriesEntity inst : results){
             if(inst.getCountryName().contains(this.country))
             {
+                this.country = inst.getCountryName();
                 this.countryId = inst.getCountryId();
                 return true;
             }
@@ -148,5 +155,24 @@ public class AddressCorrector {
 
     public int getCountryId() {
         return countryId;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    public String toString() {
+        return "AddressCorrector{" +
+                "city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", stateId=" + stateId +
+                ", countryId=" + countryId +
+                '}';
     }
 }

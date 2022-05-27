@@ -1,23 +1,18 @@
 package panel;
 
-import classes.AddressCorrector;
+import classes.Address;
+import com.example.client.CallService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Locale;
 
 public class ConfigPanel extends JPanel {
     final MainFrame frame;
-    JLabel label,correctAddress,entityFalse,incorrectAddress,addressLabel,labelCity,labelState,labelCountry;
+    JLabel label,correctAddress,entityFalse,addressLabel,labelCity,labelState,labelCountry;
     JTextField cityText, stateText,countryText;
     JButton create;
     String city,state,country;
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public ConfigPanel(MainFrame frame) {
         this.frame = frame;
@@ -41,11 +36,9 @@ public class ConfigPanel extends JPanel {
         //create spinners for rows and cols, and the button
         entityFalse = new JLabel();
         entityFalse.setVisible(false);
-        incorrectAddress = new JLabel("Incorrect Address!");
-        incorrectAddress.setVisible(false);
         addressLabel.setVisible(false);
         correctAddress = new JLabel();
-        correctAddress.setVisible(false);
+        correctAddress.setVisible(true);
         add(label);
         add(labelCountry);
         add(countryText);
@@ -55,8 +48,8 @@ public class ConfigPanel extends JPanel {
         add(cityText);
         add(create);
         add(entityFalse);
-        add(incorrectAddress);
         add(addressLabel);
+        add(correctAddress);
     }
 
     private void createGame(ActionEvent e) {
@@ -80,53 +73,10 @@ public class ConfigPanel extends JPanel {
             state = output;
             output = country.substring(0, 1).toUpperCase() + country.substring(1).toLowerCase(Locale.ROOT);
             country = output;
-            AddressCorrector addressCorrector = new AddressCorrector(city, state, country, entityManager);
-            if (!addressCorrector.verifyCountry()) {
-                if(!addressCorrector.verifyStateByName()){
-                    if(!addressCorrector.verifyCityByName()){
-                        entityFalse.setText("Nothing from this address can be found in the database!");
-                        entityFalse.setVisible(true);
-                    }else{
-                        addressCorrector.setStateName();
-                        addressCorrector.setCountryName();
-                        addressLabel = new JLabel("The correct address is:");
-                        add(addressLabel);
-                        addressLabel.setVisible(true);
-                        correctAddress.setText("City: " + addressCorrector.getCity() + " State: " + addressCorrector.getState() + " Country: " + addressCorrector.getCountry());
-                        correctAddress.setVisible(true);
-                        add(correctAddress);
-                    }
-                }else{
-                    addressCorrector.setCountryName();
-                    addressLabel = new JLabel("The correct address is:");
-                    add(addressLabel);
-                    addressLabel.setVisible(true);
-                    correctAddress.setText("City: " + addressCorrector.getCity() + " State: " + addressCorrector.getState() + " Country: " + addressCorrector.getCountry());
-                    correctAddress.setVisible(true);
-                    add(correctAddress);
-                }
-            } else if (!addressCorrector.verifyState()) {
-                if (!addressCorrector.verifyCityByName()) {
-                    entityFalse.setText("The city and the state doesn't exist!");
-                    entityFalse.setVisible(true);
-                } else {
-                    addressCorrector.setStateName();
-                    addressLabel = new JLabel("The correct address is:");
-                    add(addressLabel);
-                    addressLabel.setVisible(true);
-                    correctAddress.setText("City: " + addressCorrector.getCity() + " State: " + addressCorrector.getState() + " Country: " + addressCorrector.getCountry());
-                    correctAddress.setVisible(true);
-                    add(correctAddress);
-                }
-
-            } else if (addressCorrector.verifyCity() == false) {
-                entityFalse.setText("City doesn't exist!");
-                entityFalse.setVisible(true);
-            } else {
-                correctAddress.setText("Address is correct!");
-                correctAddress.setVisible(true);
-                add(correctAddress);
-            }
+            Address addressCorrector = new Address(city, state, country);
+            CallService c = new CallService();
+            correctAddress.setVisible(true);
+            correctAddress.setText(c.verifyAddress(addressCorrector));
         }
     }
 

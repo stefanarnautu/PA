@@ -1,13 +1,15 @@
-package entities;
+package data;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "countries", schema = "public", catalog = "ProiectPA")
+@Table(name = "countries", schema = "public", catalog = "d4kt7idb1gv9b8")
 @NamedQueries({
-        @NamedQuery(name = "CountriesEntity.findByCountryName", query = "select c from CountriesEntity c where c.countryName = :countryName")
+        @NamedQuery(name = "CountriesEntity.findById", query = "select s from CountriesEntity s where s.countryId=:countryId"),
+        @NamedQuery(name = "CountriesEntity.findByCountryName", query = "select c from CountriesEntity c where c.countryName like concat('%',:countryName,'%')")
 })
 public class CountriesEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Basic
     @Column(name = "country_id")
@@ -21,6 +23,10 @@ public class CountriesEntity {
 
     public int getCountryId() {
         return countryId;
+    }
+
+    public void setCountryId(Integer countryId) {
+        this.countryId = countryId;
     }
 
     public void setCountryId(int countryId) {

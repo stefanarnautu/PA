@@ -13,7 +13,6 @@ public class CommandsFunction {
             if (allCommand.length > 1) {
                 if (pers.getName().toLowerCase(Locale.ROOT).equals(allCommand[1].toLowerCase(Locale.ROOT))) {
                     CallService callService = new CallService();
-                    callService.incrementEntry(pers.getName().toLowerCase(Locale.ROOT));
                     return true;
                 }
             }

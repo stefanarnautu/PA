@@ -38,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Proiect 2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../REST/Server" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
@@ -79,6 +79,8 @@
       <workItem from="1653677888976" duration="7000" />
       <workItem from="1653677921737" duration="30000" />
       <workItem from="1653678010602" duration="66000" />
+      <workItem from="1653678090145" duration="191000" />
+      <workItem from="1653682320920" duration="153000" />
     </task>
     <servers />
   </component>
