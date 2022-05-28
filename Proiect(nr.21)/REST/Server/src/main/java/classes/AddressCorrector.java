@@ -20,79 +20,68 @@ public class AddressCorrector {
         this.state = state;
         this.city = city;
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        this.entityManager=entityManager;
+        this.entityManager = entityManagerFactory.createEntityManager();
         this.countryId = 0;
         this.stateId = 0;
     }
 
-    public boolean verifyCity()
-    {
-        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findByStateId", CitiesEntity.class).setParameter("stateId",this.stateId);
+    public boolean verifyCity() {
+        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findByStateId", CitiesEntity.class).setParameter("stateId", this.stateId);
         List<CitiesEntity> results = query.getResultList();
-        for(CitiesEntity inst : results){
-            if(this.city.equals(inst.getName()))
-            {
+        for (CitiesEntity inst : results) {
+            if (this.city.equals(inst.getName())) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean verifyCityByName()
-    {
-        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findByName", CitiesEntity.class).setParameter("name",this.city);
+    public boolean verifyCityByName() {
+        TypedQuery<CitiesEntity> query = this.entityManager.createNamedQuery("CitiesEntity.findByName", CitiesEntity.class).setParameter("name", this.city);
         List<CitiesEntity> results = query.getResultList();
-        for(CitiesEntity inst : results){
-            if(inst.getName().contains(this.city))
-            {
+        for (CitiesEntity inst : results) {
+            if (inst.getName().contains(this.city)) {
                 this.city = inst.getName();
-                this.stateId= inst.getStateId();
+                this.stateId = inst.getStateId();
                 return true;
             }
         }
         return false;
     }
 
-    public boolean verifyState()
-    {
+    public boolean verifyState() {
         TypedQuery<StatesEntity> query = this.entityManager
                 .createNamedQuery("StatesEntity.findByCountryId", StatesEntity.class)
                 .setParameter("countryId", this.countryId)
-                .setParameter("stateName",this.state);
+                .setParameter("stateName", this.state);
         List<StatesEntity> results = query.getResultList();
-        for(StatesEntity inst : results){
+        for (StatesEntity inst : results) {
 
-            if(inst.getStateName().contains(this.state))
-            {
+            if (inst.getStateName().contains(this.state)) {
                 this.state = inst.getStateName();
                 this.stateId = inst.getStateId();
-                this.countryId=inst.getCountryId();
+                this.countryId = inst.getCountryId();
                 return true;
             }
         }
         return false;
     }
 
-    public boolean verifyStateByName()
-    {
-        TypedQuery<StatesEntity> query = this.entityManager.createNamedQuery("StatesEntity.findByName", StatesEntity.class).setParameter("stateName",this.state);
+    public boolean verifyStateByName() {
+        TypedQuery<StatesEntity> query = this.entityManager.createNamedQuery("StatesEntity.findByName", StatesEntity.class).setParameter("stateName", this.state);
         List<StatesEntity> results = query.getResultList();
-        for(StatesEntity inst : results){
-            if(inst.getStateName().contains(this.city))
-            {
+        for (StatesEntity inst : results) {
+            if (inst.getStateName().contains(this.city)) {
                 this.state = inst.getStateName();
-                this.stateId= inst.getStateId();
-                this.countryId= inst.getCountryId();
+                this.stateId = inst.getStateId();
+                this.countryId = inst.getCountryId();
                 return true;
             }
         }
         return false;
     }
 
-    public void setStateName()
-    {
+    public void setStateName() {
         TypedQuery<StatesEntity> query = this.entityManager
                 .createNamedQuery("StatesEntity.findById", StatesEntity.class)
                 .setParameter("stateId", this.stateId);
@@ -101,13 +90,11 @@ public class AddressCorrector {
         this.countryId = results.get(0).getCountryId();
     }
 
-    public boolean verifyCountry()
-    {
+    public boolean verifyCountry() {
         TypedQuery<CountriesEntity> query = this.entityManager.createNamedQuery("CountriesEntity.findByCountryName", CountriesEntity.class).setParameter("countryName", country);
         List<CountriesEntity> results = query.getResultList();
-        for(CountriesEntity inst : results){
-            if(inst.getCountryName().contains(this.country))
-            {
+        for (CountriesEntity inst : results) {
+            if (inst.getCountryName().contains(this.country)) {
                 this.country = inst.getCountryName();
                 this.countryId = inst.getCountryId();
                 return true;
@@ -129,40 +116,12 @@ public class AddressCorrector {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getCountry() {
         return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public int getStateId() {
-        return stateId;
-    }
-
-    public int getCountryId() {
-        return countryId;
-    }
-
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
-
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
     }
 
     @Override

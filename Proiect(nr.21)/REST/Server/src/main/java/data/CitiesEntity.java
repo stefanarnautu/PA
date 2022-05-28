@@ -25,32 +25,12 @@ public class CitiesEntity {
     @Column(name = "name")
     private String name;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Integer getStateId() {
         return stateId;
     }
 
-    public void setStateId(Integer stateId) {
-        this.stateId = stateId;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override

@@ -28,9 +28,6 @@ public class ConfigPanel extends JPanel {
         stateText = new JTextField();
         countryText = new JTextField();
         addressLabel = new JLabel();
-       /* cityText.setPreferredSize( new Dimension( 200, 24 ) );
-        stateText.setPreferredSize( new Dimension( 200, 24 ) );
-        countryText.setPreferredSize( new Dimension( 200, 24 ) );*/
         create = new JButton("Verify Address");
         create.addActionListener(this::createGame);
         //create spinners for rows and cols, and the button
@@ -62,7 +59,7 @@ public class ConfigPanel extends JPanel {
         state = stateText.getText();
         country = countryText.getText();
         if (city.length()==0 || state.length()==0 || country.length()==0) {
-            entityFalse.setText("This is an empty field!");
+            entityFalse.setText("There is an empty field!");
             entityFalse.setVisible(true);
             next = false;
         }
@@ -74,9 +71,9 @@ public class ConfigPanel extends JPanel {
             output = country.substring(0, 1).toUpperCase() + country.substring(1).toLowerCase(Locale.ROOT);
             country = output;
             Address addressCorrector = new Address(city, state, country);
-            CallService c = new CallService();
+            CallService callService = new CallService();
             correctAddress.setVisible(true);
-            correctAddress.setText(c.verifyAddress(addressCorrector));
+            correctAddress.setText(callService.verifyAddress(addressCorrector));
         }
     }
 

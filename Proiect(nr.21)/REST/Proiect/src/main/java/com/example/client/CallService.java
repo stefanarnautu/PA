@@ -15,10 +15,10 @@ public class CallService {
     private String uri;
 
     public String verifyAddress(Address address) {
-        uri = "http://localhost:8090/addresses/verify?country="+address.getCountry()+"&state="+address.getState()+"&city="+address.getCity();
+        uri = "http://localhost:8090/addresses/verify?country=" + address.getCountry() + "&state=" + address.getState() + "&city=" + address.getCity();
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.POST, null, new ParameterizedTypeReference<String>(){});
-        System.out.println(response.getBody());
+        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.POST, null, new ParameterizedTypeReference<String>() {
+        });
         return response.getBody();
     }
 
