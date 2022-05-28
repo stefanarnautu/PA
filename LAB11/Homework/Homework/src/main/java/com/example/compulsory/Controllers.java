@@ -36,6 +36,7 @@ public class Controllers {
                           "SELECT c FROM AccountsEntity c")
                             .getResultList();
     }
+
     @PostMapping("/register")
     public ResponseEntity<String> createPerson(@RequestParam String name) {
         int id = 1 + Integer.parseInt(entityManager.createQuery(
