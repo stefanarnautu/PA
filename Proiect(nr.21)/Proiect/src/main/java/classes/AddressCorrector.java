@@ -32,6 +32,7 @@ public class AddressCorrector {
         for(CitiesEntity inst : results){
             if(this.city.equals(inst.getName()))
             {
+                this.city = inst.getName();
                 return true;
             }
         }
@@ -45,6 +46,7 @@ public class AddressCorrector {
         for(CitiesEntity inst : results){
             if(inst.getName().contains(this.city))
             {
+                this.city = inst.getName();
                 this.stateId= inst.getStateId();
                 return true;
             }
@@ -78,7 +80,7 @@ public class AddressCorrector {
         for(StatesEntity inst : results){
             if(inst.getStateName().contains(this.city))
             {
-                this.countryId= inst.getCountryId();
+                this.countryId = inst.getCountryId();
                 return true;
             }
         }
