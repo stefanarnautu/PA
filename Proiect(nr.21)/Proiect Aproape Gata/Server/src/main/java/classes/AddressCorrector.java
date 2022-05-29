@@ -71,7 +71,7 @@ public class AddressCorrector {
         TypedQuery<StatesEntity> query = this.entityManager.createNamedQuery("StatesEntity.findByName", StatesEntity.class).setParameter("stateName", this.state);
         List<StatesEntity> results = query.getResultList();
         for (StatesEntity inst : results) {
-            if (inst.getStateName().contains(this.state)) {
+            if (inst.getStateName().contains(this.city)) {
                 this.state = inst.getStateName();
                 this.stateId = inst.getStateId();
                 this.countryId = inst.getCountryId();
