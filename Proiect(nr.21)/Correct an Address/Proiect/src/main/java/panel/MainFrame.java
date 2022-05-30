@@ -29,7 +29,7 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         configPanel = new ConfigPanel(this);
         configPanel.setLayout(new BoxLayout(configPanel, BoxLayout.PAGE_AXIS));
-        configPanel.setBorder(BorderFactory.createEmptyBorder(50, 100, 200, 100));
+        configPanel.setBorder(BorderFactory.createEmptyBorder(50, 90, 200, 90));
         configPanel.setPreferredSize(new Dimension(600, 400));
         controlPanel = new ControlPanel(this);
         controlPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

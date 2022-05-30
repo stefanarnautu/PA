@@ -25,6 +25,7 @@ public class Controllers {
                 }
             } else {
                 this.address.setCountryName();
+                this.address.setCityName();
                 response = "CORRECT: City: " + this.address.getCity() + " State: " + this.address.getState() + " Country: " + this.address.getCountry();
             }
         } else if (!this.address.verifyState()) {
