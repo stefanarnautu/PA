@@ -14,7 +14,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Correct an Address(fara heroku)/Proiect" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Spring Boot.ClientApplication">
     <configuration name="ClientApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -74,7 +74,8 @@
       <workItem from="1653911619544" duration="247000" />
       <workItem from="1653914525969" duration="20000" />
       <workItem from="1653914618032" duration="775000" />
-      <workItem from="1653917543578" duration="1149000" />
+      <workItem from="1653917543578" duration="1107000" />
+      <workItem from="1653918843913" duration="340000" />
     </task>
     <servers />
   </component>
