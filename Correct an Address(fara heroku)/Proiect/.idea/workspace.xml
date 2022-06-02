@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LAB11/Compulsory" />
   </component>
   <component name="RunManager" selected="Spring Boot.ClientApplication">
     <configuration name="ClientApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -75,7 +75,8 @@
       <workItem from="1653914525969" duration="20000" />
       <workItem from="1653914618032" duration="775000" />
       <workItem from="1653917543578" duration="1107000" />
-      <workItem from="1653918843913" duration="340000" />
+      <workItem from="1653918843913" duration="869000" />
+      <workItem from="1653922395989" duration="22000" />
     </task>
     <servers />
   </component>

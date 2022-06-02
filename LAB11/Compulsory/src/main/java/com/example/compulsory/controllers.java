@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 

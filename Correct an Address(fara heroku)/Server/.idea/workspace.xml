@@ -34,7 +34,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="JPA.DatabaseSchemaImportDialog" value="5707a614-f01a-4d5d-8f9d-07a3d0f932ad" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="cf89d8e0-4ca8-4fc1-8abb-284cfd6ffb27" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -101,7 +101,7 @@
       <workItem from="1653911186621" duration="664000" />
       <workItem from="1653914550485" duration="915000" />
       <workItem from="1653917528088" duration="1107000" />
-      <workItem from="1653918864712" duration="185000" />
+      <workItem from="1653918864712" duration="867000" />
     </task>
     <servers />
   </component>
